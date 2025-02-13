@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
+*,
+*:before, 
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0 !important;
+  outline-offset: 0;
+}   
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/**** Variable define bien  ****/
+:root {
+    --primary-color: #de3cde;
+    --secondary-color: #333;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+/********* Custom Scrollbar ***********/
+
+::-webkit-scrollbar {
+    width: 0.3125rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+/* ========= Custom CSS Design ========== */
+
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: var(--white-color);
+}
+
+h2 {
+    font-size: 1.5625rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--white-color);
+    line-height: 2.5rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--white-color);
+    margin-bottom: 0.9375rem;
+    transition: all 0.3s linear;
+}
+
+h5 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--white-color);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white-color);
+    line-height: 1.75rem;
+    letter-spacing: 0.0625rem;
+    opacity: 0.8;
+}
+
+.main-btn {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.125rem;
+    display: inline-block;
+    color: var(--white-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 30px;
+    position: relative;
+}
+
+
+.main-btn::after, 
+.main-btn::before {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, .3);
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: "";
+    transition: all 0.5s ease-out 0s;
+    -webkit-transition: all 0.5s ease-out 0s;
+    transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+}
+
+.main-btn::after {
+    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+}
+
+.main-btn:hover::before {
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    background-color: var(--primary-color);
+}
+
+.main-btn:hover::after {
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    background-color: var(--primary-color);
+}
+
+.main-btn:hover {
+    color: var(--primary-color) !important;
+}
+
+.wrapper {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--secondary-color);
+}
+
+.text-content {
+    width: 60%;
+    margin: auto;
+}
+
+/* 
+===============================================
+    Header Section  
+===============================================
+*/
+.top-header {
+    background-color: var(--secondary-color);
+}
+
+.top-header span{
+    font-size: 0.875rem;
+    color: var(--white-color);
+    letter-spacing: 0.1062rem;
+}
+
+.navigation-wrap {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    --webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+}
+
+.navigation-wrap .nav-item {
+    padding: 0 0.5rem;
+    transition: all 0.2s linear;
+    display: inline-block;
+}
+
+.navbar-toggler:focus {
+    outline: unset;
+    border: none;
+    box-shadow: none;
+}
+
+.navigation-wrap .nav-link {
+    padding-top: 0.9375rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white-color);
+    letter-spacing: 0.0625rem;
+}
+
+.navigation-wrap .nav-link:hover,
+.navigation-wrap .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Change navbar styling on scroll */
+.navigation-wrap.scroll-on {
+    position: fixed;
+    background-color: var(--black-color);
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0.125rem 1.75rem 1 rgba(0, 0, 0, 0.09);
+    transition: all 0.15s ease-in-out 0s;
+}
+
+.navigation-wrap.scroll-on .nav-link:hover,
+.navigation-wrap.scroll-on .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* 
+===============================================
+    Top banner design
+===============================================
+ */
+
+#home .carousel-caption {
+    top: 12rem;
+}
+
+#home .carousel-caption p {
+    max-width: 36.25rem;
+    margin: 1.0625rem auto;
+}
+
+/* 
+===============================================
+    New-arrivals Section
+===============================================
+ */
+.new-arrvials .banner-info {
+    bottom: 30px;
+    margin: auto;
+    width: 100%;
+    position: absolute;
+    z-index:69;
+    padding: 0 15px;
+
+}
+
+.new-arrvials .card-banner:nth-child(2) h2,
+.new-arrvials .card-banner:nth-child(2) p,
+.new-arrvials .card-banner:nth-child(2) a {
+    color: var(--black-color);
+}
+
+.new-arrvials .card-banner:nth-child(2) a::before,
+.new-arrvials .card-banner:nth-child(2) a::after {
+    background-color: var(--black-color);
+}
+
+.new-arrvials .card-banner .card-thumb,
+.products .item-product {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.new-arrvials .card-banner .card-thumb img,
+.products .item-product img {
+    width: 100%;
+    transition: all 0.3s ease-out 0s;
+}
+
+.new-arrvials .card-banner .card-thumb img:hover,
+.products .item-product img:hover {
+    transform: scale(1.2);
+    opacity: 0.6;
+}
+/*
+===============================================
+    Product Section Design
+=============================================== 
+ */
+.products .wrapper {
+    background-color: var(--black-color);
+}
+
+.products .nav-tabs {
+    border: 0;
+    justify-content: center;
+}
+
+.products .nav-tabs .nav-link {
+    display: block;
+    padding: 0 30px;
+    border: 1px solid var(--white-color);
+    border-radius: 20px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    height: 36px;
+    margin: 10px;
+    line-height: 34px;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+}
+.products .nav-tabs .nav-link:hover {
+    transform: scale(1.1);
+}
+
+.products .product-info .cat-parent,
+.products .product-info .wishlist i{
+    font-size: 0.875rem;
+    color: var(--white-color);
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.products .product-title a {
+    margin: 0 0 7px;
+    display: block;
+    color: var(--white-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.products .rating i{
+    color: #f4f632;
+}
+.basket a i{
+    color: var(--white-color);
+}
+
+/*
+===============================================
+    Deal Of The Day Section Design
+=============================================== 
+ */
+.deal-of-the-day {
+    background-image: url("../images/img/img-4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*
+===============================================
+    Blog Section Design
+=============================================== 
+ */
+.blog-section {
+    background-color: var(--black-color);
+} 
+
+/*
+===============================================
+    Footer Section Design
+=============================================== 
+ */
+.footer{
+    background-color: var(--secondary-color);
+}
+
+.footer .footer-social a {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    padding: 0 1rem;
+}
+.footer .footer-social a:hover {
+    color: var(--primary-color);
+}

@@ -129,7 +129,7 @@ public class ShopCategoryService {
          * do de ghi nhan va luu vao trong folder chua uploads he
          */
         String newFile = randomString + "_" + file.getOriginalFilename();
-        String filePath = rootFolder + File.separator + uploadDir +  File.separator +  newFile;
+        String filePath = rootFolder + File.separator    + uploadDir +  File.separator +  newFile;
 
         /**tien hanh xu ly luu file vao thu muc**/
         //tao muc vo ben ngoai de chua ruot file anh
@@ -193,6 +193,10 @@ public class ShopCategoryService {
              * => giai thich them ti:
              *  + de xoa anh thi can thiet lap kiem tra coi no co ton tai khong neu co  thi moi xoa
              *  => luu ý can chuyen bien filePath thanh kieu du lieu Path de theo chuan viet code java mơi
+             *  + Path là một interface trong Java NIO (New Input/Output), được sử dụng để biểu diễn đường dẫn của một tệp
+             *  hoặc thư mục trong hệ thống tập tin.
+             * + Paths.get(...) tạo ra một đối tượng Path từ chuỗi đường dẫn được truyền vào.
+             * ==> tum lai: Biến filePath chứa đường dẫn tuyệt đối đến tập tin ảnh cần thao tác.
              * **/
             String rootFolder = Paths.get("").toAbsolutePath().toString();
             Path filePath = Path.of(rootFolder + File.separator + uploadDir +  File.separator +  delId.getImage());

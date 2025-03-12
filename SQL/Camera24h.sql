@@ -269,3 +269,6 @@ select * from acl_roles;
 select * from shop_products;
 select * from shop_categories;
 select * from shop_suppliers;
+
+-- xóa value trong table
+delete from shop_products where id in (22, 23);

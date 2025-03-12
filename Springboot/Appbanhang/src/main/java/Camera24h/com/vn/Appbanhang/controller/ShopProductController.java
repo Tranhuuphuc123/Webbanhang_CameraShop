@@ -46,6 +46,7 @@ public class ShopProductController {
      b/ String jsonData: anh da duoc xu ly voi MultipartFile, thi cac value con lai van gui o dang
      json -> parse vao DTO thong qua lop ObjectMapper
      **/
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/create")
     public ResponseEntity<Map<String, Object>> create (@RequestParam("file") MultipartFile file,
                                                        @RequestParam("data") String jsonData){
@@ -71,6 +72,7 @@ public class ShopProductController {
      /* annotation @PathVariable được sử dụng để trích xuất giá trị từ URL và ánh xạ nó tới tham số của phương thức controller.
       Đây là cách mà giá trị của {id} trong đường dẫn (path) được truyền đến tham số id của phương thức delete. */
     //@DeleteMapping annotation dung danh dau la chuc nang delete trong spring boot theo id-*/
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Map<String, Object>> delete(@PathVariable Integer id){
         return shopProductService.deleteShopProduct(id);
@@ -79,6 +81,7 @@ public class ShopProductController {
 
 
     /****************4 - update***************************/
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/update/{id}")
      public ResponseEntity<Map<String, Object>> update(@PathVariable Integer id, @RequestBody ShopProductUpdateRequestDTO res){
          return shopProductService.updateShopProduct(id, res);

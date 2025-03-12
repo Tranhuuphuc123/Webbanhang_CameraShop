@@ -45,7 +45,7 @@ public class ShopCategoryController {
     /**
       a/ goi multipartFile xu li lay file image va luu img ca ten lan ruot vao folder da thiet lap
      b/ String jsonData: anh da duoc xu ly voi MultipartFile, thi cac value con lai van gui o dang
-     json -> parse vao DTO thong qua lop ObjectMapper
+     json -> parse vao DTO thong qua lop ObjpubPaectMapper
      **/
     @PostMapping("/create")
     public ResponseEntity<Map<String, Object>> create (@RequestParam("file") MultipartFile file,

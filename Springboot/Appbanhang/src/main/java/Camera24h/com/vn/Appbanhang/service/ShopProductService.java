@@ -17,14 +17,18 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -41,13 +45,27 @@ public class ShopProductService {
 
 
     /******I - get co phan trang*******/
-    public ResponseEntity<Map<String, Object>> getAllPagination(int pageNumber, int pageSize, String sortBy){
+    public ResponseEntity<Map<String, Object>> getAllPagination(int pageNumber,
+                                                                int pageSize,
+                                                                String sortBy,
+                                                                String searchTerm){
         //khoi tao bien luu ket qua tra  ve
         Map<String, Object> response = new HashMap<>();
 
         //yeu cau repo thu thi get all co phan trang voi pageable
         Pageable pageable = PageRequest.of(pageNumber-1, pageSize, Sort.by(sortBy));
-        Page<ShopProducts> pageResult = shopProductRepo.findAll(pageable);
+        Page<ShopProducts> pageResult = null;
+
+        //neu nhu khogn co thuc thi tiem kiem thi hien thi phang trang binh thuong <=> serarch thi bo phan trang
+        if(searchTerm == null || searchTerm.isEmpty()){
+            pageResult =  shopProductRepo.findAll(pageable);
+        }else{
+            //co yeu cau tim kiem thi tien hanh xoa phan trang di
+            pageResult =  shopProductRepo.findByProdcutnameContainOrProducCodeContain(searchTerm.toLowerCase(),
+                                                                        searchTerm.toLowerCase(),
+                                                                        pageable);
+        }
+
         if(pageResult.hasContent()){
             //trả về kết quả cho người dùng -> trả theo chuẩn restFullApi
             response.put("data", pageResult.getContent());
@@ -73,6 +91,40 @@ public class ShopProductService {
     }
 
 
+
+
+    /*********I -  1: xậy dựng mehod tiem kiem tra ve ket qua  id***********************/
+    /*nhu cach thuc cua getAllPagination no cung tra ve ket qua tuy nhien getallPaginattion
+     * la method tra ve ket qua theo recored value hien thi ra tat ca value can co trng csdl
+     * -> gio trong method nay ta can tra la tra ve ket qua la id cua record tuong ung thui
+     * ==> trong bai nay ta phuc vu chuc nang update tuy nhien trc khi thuc thi method update
+     * ta can tra ve ket qua la cac id tuong ung cac record tren csdl */
+    public ResponseEntity<Map<String, Object>> getById (Integer id){
+        //khoi tao bien luu ket qua tra ve
+        Map<String, Object> response = new HashMap<>();
+
+        //nho repo thuc thi tra ve ket qua id => luu trong bien Optional(chap nhan gia tri null)
+        Optional<ShopProducts> optFoundById = shopProductRepo.findById(id);
+        //neu no co ton tai
+        if(optFoundById.isPresent()){
+            //nhan id vau tim kiem dc
+            ShopProducts shopEntity = optFoundById.get();
+
+            //tra ve thong bao thanh cong
+            response.put("data", shopEntity);
+            response.put("statuscode", 201);
+            response.put("msg", "ket qua tra ve ton tai id vua tim kiem");
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }else{
+            //tra ve ket qua nguoi dung
+            response.put("data", null);
+            response.put("statuscode", 404);
+            response.put("msg", "vui long xem lai khong ton tai id vua tim kiem");
+
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     /**************2 - create *********************/
@@ -201,6 +253,25 @@ public class ShopProductService {
         if(optFound.isPresent()){
             //ghi nhan ket qua id vua tiem kiem dc
             ShopProducts delId = optFound.get();
+
+            // xóa ảnh luu trong folder tren project tranh giu file rác khi record trên database đã xóa rồi mà img vần còn
+            /**code nay muon cần giải thích có thêm xem ở giải thích của method create
+             * => giai thich them ti:
+             *  + de xoa anh thi can thiet lap kiem tra coi no co ton tai khong neu co  thi moi xoa
+             *  => luu ý can chuyen bien filePath thanh kieu du lieu Path de theo chuan viet code java mơi
+             *  + Path là một interface trong Java NIO (New Input/Output), được sử dụng để biểu diễn đường dẫn của một tệp
+             *  hoặc thư mục trong hệ thống tập tin.
+             * + Paths.get(...) tạo ra một đối tượng Path từ chuỗi đường dẫn được truyền vào.
+             * ==> tum lai: Biến filePath chứa đường dẫn tuyệt đối đến tập tin ảnh cần thao tác.
+             * **/
+            String rootFolder = Paths.get("").toAbsolutePath().toString();
+            Path filePath = Path.of(rootFolder + File.separator + uploadDir +  File.separator +  delId.getImage());
+            try{
+                //deleteIfExists co ton tai no moi xoa
+                Files.deleteIfExists(filePath);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
             //dung repo xoa no
             shopProductRepo.delete(delId);
 
@@ -214,7 +285,7 @@ public class ShopProductService {
             //tra ve ket qua nguoi dung
             response.put("data", null);
             response.put("statuscode", 404);
-            response.put("msg", "tài khoản xóa không tồn tại");
+            response.put("msg", "Có tài khoản xóa không tồn tại vui lòng kiểm tra lại");
 
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
@@ -222,8 +293,60 @@ public class ShopProductService {
 
 
 
+    /****3-1- delete all nhiều value cùng lúc ****/
+    public ResponseEntity<Map<String, Object>> deleteShopProductMultiple(List<Integer> ids){
+        //1 - tao hàm Map khởi tạo lưu trữ kết quả trả về
+        Map<String, Object> response = new HashMap<>();
+
+        /*2 - nho repo tim kiem xem co id nao khong ton tai khong neu co thi bao loi
+        * >>y nghia:<<
+        * => List<ShopProducts>: tra ve list danh sach id, existinProductId(existing tv la
+        * co ton tai khong?)
+        * => de khac phuc th la neu id khong ton tai thi sao xoa dc phai bao loi de biet
+        * id do khong co ton tai nua
+        *
+        * */
+        List<ShopProducts> existingProductId =   (List<ShopProducts>)  shopProductRepo.findAllById(ids);
+
+        //lap dieu kien neu id can xoa lay ma ton tai mot id khog nco thi khog du dk xoa
+        if(existingProductId.size() != ids.size()){
+           //2 -1 ne phat hien id khogn du hoac khog co trong list id can xoa thi xu ly tra ket qua thong bao
+            response.put("data", null);
+            response.put("statuscode", 404);
+            response.put("msg", "tài khoản xóa không tồn tại");
+
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+
+        //2-2: thuc hien xoa file ruot anh
+        for(ShopProducts shopPro  : existingProductId){
+            String rootFolder = Paths.get("").toAbsolutePath().toString();
+            Path filePath = Path.of(rootFolder + File.separator + uploadDir +  File.separator +  shopPro.getImage());
+            try{
+                //deleteIfExists co ton tai no moi xoa
+                Files.deleteIfExists(filePath);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+
+        // 3 th: tat ca id mun xoa da thoa dieu kien da co ton tai trong database thi thuc hien -> t/h xoa
+        shopProductRepo.deleteAllById(ids);
+
+        // tra ve  thong bao thanh cong
+        response.put("data", null);
+        response.put("statuscode", 200);
+        response.put("msg", "delete danh sách các id cần xóa thành công");
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+
+
     /*********************4 - update*************************/
-    public ResponseEntity<Map<String, Object>> updateShopProduct(Integer id, ShopProductUpdateRequestDTO objUpdate){
+    public ResponseEntity<Map<String, Object>> updateShopProduct(Integer id, ShopProductUpdateRequestDTO objUpdate,
+                                                                MultipartFile file ){
         //khoi tao bien luu tru
         Map<String, Object> response = new HashMap<>();
 
@@ -240,8 +363,56 @@ public class ShopProductService {
             if(objUpdate.getProductName() != null && !objUpdate.getProductName().isEmpty()){
                 enityUpdate.setProductName(objUpdate.getProductName());
             }
-            if(objUpdate.getImage() != null && !objUpdate.getImage().isEmpty()){
-                enityUpdate.setImage(objUpdate.getImage());
+            //xu ly edit voi file(file thi co lien quan den anh ruot anh chu khong chi la chuoi String)
+            if(file != null){
+               /**quy trinh 1: update file moi (khoi tao create file img moi) vao thu muc mong doi**/
+                //tao chuoi randomString rong de lưu gia tri bien moi vao
+                String randomString = "";
+
+                //dung datetime de luu tru img phan loai luu ten theo datetime tranh trung ten bi ghi de img
+                DateTimeFormatter iso_8601_formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+                randomString = LocalDateTime.now().format(iso_8601_formatter);
+
+                //tao muc lay folder goc chua anh
+                String rootFolder = Paths.get("").toAbsolutePath().toString();
+
+                //tao newFile de chua anh(ruot anh chu khong phai chi la ten file)
+                String rootFileImg = randomString + "_" + file.getOriginalFilename();
+
+                /*tao bien filePath de luu url lay anh: bao gom co folder goc \\ ruot anh.img\\..
+                * +  File.separator: la tuy theo he dieu hang no lay dau url dung voi he dieu hanh do
+                * o day la window thi no lay dau \, neu mac no tu hieu thanh dau /
+                * + File.separator: folder upload da ding nghia o properties
+                * */
+                String filePath = rootFolder + File.separator + uploadDir + File.separator + rootFileImg;
+
+                /*tien hanh xu ly luu file vao thu muc*/
+                //tao muc de chua ruot file anh sau khi lay dc url lay anh dung muc img da chon
+                File destinationFile = new File(filePath);
+
+                //mkdir: kiem tra neu khong ton tai muc folder da thiet lap thi no se tu tao muc folder do
+                destinationFile.getParentFile().mkdir();
+
+                //tien hanh lay ruot anh(anh goc) ghi nhan va luu vao file
+                try{
+                    //transferTo: giup ghi nhan va lay img(ruot anh)
+                    file.transferTo(destinationFile);
+                }catch(IOException e ){
+                    e.printStackTrace();
+                }
+
+
+                /**quy trinh 2: tien hanh xoa file anh cu da ton tai trc do de tranh file rac ton dong**/
+                Path deletingFilePath = Path.of(rootFolder + File.separator + uploadDir + File.separator + enityUpdate.getImage());
+                try{
+                    //tien hanh delete file da ton tai
+                    Files.deleteIfExists(deletingFilePath);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+
+                /**quy trinh 3: tien hanh cap nhat file img moi lai vao muc img trong database**/
+                enityUpdate.setImage(rootFileImg);
             }
             if(objUpdate.getShortDescription() != null && !objUpdate.getShortDescription().isEmpty()){
                 enityUpdate.setShortDescription(objUpdate.getShortDescription());

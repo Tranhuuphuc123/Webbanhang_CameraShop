@@ -6,16 +6,20 @@ import Camera24h.com.vn.Appbanhang.DTO.ShopSupplierDTO.ShopSupplierCreateRequest
 import Camera24h.com.vn.Appbanhang.DTO.ShopSupplierDTO.ShopSupplierUpdateRequestDTO;
 import Camera24h.com.vn.Appbanhang.service.ShopProductService;
 import Camera24h.com.vn.Appbanhang.service.ShopSupplierService;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,10 +38,20 @@ public class ShopProductController {
     @GetMapping
     public ResponseEntity<Map<String, Object>> getIndex(@RequestParam(defaultValue = "1") Integer pageNumber,
                                                         @RequestParam(defaultValue = "3") Integer pageSize,
-                                                        @RequestParam(defaultValue = "id") String sortBy){
+                                                        @RequestParam(defaultValue = "id") String sortBy,
+                                                        @RequestParam(required = false) String search){
         //gi serrvice xu ly getall co phan trang
-        return shopProductService.getAllPagination(pageNumber,pageSize,sortBy);
+        return shopProductService.getAllPagination(pageNumber,pageSize,sortBy, search);
     }
+
+    /***************** 1-1api getById *******************/
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/{id}")
+    public ResponseEntity<Map<String, Object>> getById(@PathVariable Integer id){
+        //yeu cau service tra  ve id
+        return shopProductService.getById(id);
+    }
+
 
 
     /************2 - create******************/
@@ -78,13 +92,35 @@ public class ShopProductController {
         return shopProductService.deleteShopProduct(id);
     }
 
-
+    /*****3- deleteAll nhiều id****/
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/batch-delete")
+    public ResponseEntity<Map<String, Object>> deleteMultiple(@RequestBody List<Integer> ids){
+        return shopProductService.deleteShopProductMultiple(ids);
+    }
 
     /****************4 - update***************************/
+    //@RequestParam(value = "file", required = false: chấp nhận img null khong bat loi
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/update/{id}")
-     public ResponseEntity<Map<String, Object>> update(@PathVariable Integer id, @RequestBody ShopProductUpdateRequestDTO res){
-         return shopProductService.updateShopProduct(id, res);
+     public ResponseEntity<Map<String, Object>> update(@PathVariable Integer id,
+                                                       @RequestParam(value = "file", required = false) MultipartFile file,
+                                                       @RequestParam("data") String jsonData){
+        /*goi class ObjectMapper de mapp json(param: data) gui len -> parse(chuyen) json do thanh value va xu ly
+        * luu torng shopProducts*/
+        ObjectMapper objMapper = new ObjectMapper();
+
+        //goi khoi  tao lop dto cua shopProduct
+        ShopProductUpdateRequestDTO objDTO = null;
+
+        // tien hanh cho DTO doc va ghi nhan value tu json gui len da dc map thong qua lop ObjectMapper
+        try {
+            objDTO = objMapper.readValue(jsonData, ShopProductUpdateRequestDTO.class);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+         return shopProductService.updateShopProduct(id, objDTO, file);
      }
 
 

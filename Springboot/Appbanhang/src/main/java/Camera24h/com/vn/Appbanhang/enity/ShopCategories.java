@@ -25,6 +25,7 @@ public class ShopCategories {
     private String categoryName;
 
     @Column(name = "desription")
+
     private String description;
 
     @Column(name = "image")

@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
-//nhóm lib hỗ trợ Toast trong báo trong lib react bootstrap - xem thêm trên toast/react Bootstrap
-// import Toast from 'react-bootstrap/Toast';
-// import ToastContainer from 'react-bootstrap/ToastContainer'; 
+//import interface  types định kiểu dữ liệu cho dữ liệu cho page props edit product
+import {EditProductPropsTypes, ModalContextType, ToastContextType, CategoryTypes,
+  SupplierTypes, ToastContextType } from "@/types/TsSetup";
 
 //import useToast trong ToastContext(viết riêng chuẩn context ấy) để sử dụng cho trang create products
 import { useToast } from '@/context/ToastContext';
@@ -23,29 +23,29 @@ import axios from '@/lib/axios';
 //make variale api url file upload img
 const API_UPLOAD_URL = "http://localhost:8080/uploads/";
 
-const UpdateModal = ({id, listProduct, setListProduct}) => {
+const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
 
   //khai bao bien trang thai state - state dùng cho input nhập liệu từ client
-  const [listCategory, setListCategory] = useState([]);
-  const [listSupplier, setListSupplier] = useState([]);
-  const [productCode, setProductCode] = useState(null);
-  const [productName, setProductName] = useState(null);
-  const [shortDescription, setShortDescription] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [standardCost, setStandardCost] = useState(null);
-  const [listPrice, setListPrice] = useState(null);
-  const [quantityPerUnit, setQuantityPerUnit] = useState(null);
-  const [discontinued, setDiscontinued] = useState(null);
-  const [isFeatured, setIsFeatured] = useState(null);
-  const [isNew, setIsNew] = useState(null);
-  const [categoryId, setCategoryId] = useState([]);
-  const [supplierId, setSupplierId] = useState([]);
+  const [listCategory, setListCategory] = useState<CategoryTypes[]>([]);
+  const [listSupplier, setListSupplier] = useState<SupplierTypes[]>([]);
+  const [productCode, setProductCode] = useState<string | null>(null);
+  const [productName, setProductName] = useState<string | null>(null);
+  const [shortDescription, setShortDescription] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
+  const [standardCost, setStandardCost] = useState<number | null>(null);
+  const [listPrice, setListPrice] = useState<number | null>(null);
+  const [quantityPerUnit, setQuantityPerUnit] = useState<number | null>(null);
+  const [discontinued, setDiscontinued] = useState<boolean | null>(null);
+  const [isFeatured, setIsFeatured] = useState<boolean | null>(null);
+  const [isNew, setIsNew] = useState<boolean | null>(null);
+  const [categoryId, setCategoryId] = useState<number | null>(null);
+  const [supplierId, setSupplierId] = useState<number | null>(null);
 
 
   //khai báo state tu useToast trong ToastContext truyền vào bien state
-  const {showToast} = useToast();
+  const {showToast} = useToast() as ToastContextType;
   //state trang thai dung voi useModal cua ModalContext:
-  const {openModal, closeModal, show, modalType} = useModal();
+  const {closeModal} = useModal() as ModalContextType;
 
 
   /***method: xử lý sự kiện khi choosefile img thì ảnh hiện lên để có thể xem trc đc ảnh vừa chọn**/
@@ -54,9 +54,9 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
   const[file, setFile] = useState(null); //state chỉ lưu file img  khi create sản phẩm
 
   /**method: xử lý xem trc img **/
-  const handleImgPreview = (e) => {
+  const handleImgPreview = (e: React.ChangeEvent<HTMLInputElement>) => {
     //đọc nd tập tin cần hiển thị
-    const file = e.target.files[0]
+    const file = e.target.files?.[0]
     if(file){
       //tạo Url láy địa chứa img xem trước
       const preView = URL.createObjectURL(file)
@@ -72,7 +72,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
 
 
   /***hàm xử lý sự kiện submit nut edit khi nhán lưu file: create product*****/
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       //ngăn sk mặc đinh khi nhấn nút submit của trình duyệt
       e.preventDefault()
       // tạo hàm gọi api thêm mới sản phẩm 
@@ -120,11 +120,23 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
            //goi showToast vao de su dung hien thi TOast trong useEffect
            showToast(response.data.msg, 'success')
            
+            /**reload lại trang sang creat
+            *-> ở mục nay sau create nếu có phân trang thi nó reload lại trang
+            và đẩy dòng recore mới tạo vào page phân trang cúi cùng tránh
+            cứ đồn ở page 1 
+            -> cách làm tao tham số onReload khai báo ở method đầu const 
+            CreateModal = ({listProduct, setListProduct, onReload}) 
+            -> qua bên page tổng của Products truyenf đối só là method handleReload vào 
+            tham số onReload nay và xử lý reload bền page cảu product tổng
+            *  **/
+            //nếu có onReload thì gọi hàm onReload
+            if (onReload) {
+              onReload();
+            }  
+           
+            
           //close modal khi xóa thành công -xóa xong đóng hộp thoại xóa di
-          closeModal()
-             
-          //cập nhật lại trạng thái 
-          setListProduct([...listProduct, response.data.data])       
+          closeModal()    
 
         }catch(error){
           const errorMessage = error.response?.data?.message || 'Có lỗi khi update sản phẩm!';
@@ -269,7 +281,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
               vao input de edit */}
               <input type="text" className="form-control" id="product_code" 
               placeholder="Mời nhập mã sản phẩm" 
-              value={productCode} 
+              value={productCode ?? ''} // Nếu productCode là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
               onChange={(e)=>{setProductCode(e.target.value)}}/>
             </div>
 
@@ -280,7 +292,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
               <label htmlFor="product_name" className="form-label color_text_product">Tên sản phẩm</label>
               <input type="text" className="form-control" id="product_name" 
               placeholder="Mời nhập tên sản phẩm"
-              value={productName}
+              value={productName ?? ''} // Nếu productName là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
               onChange={(e)=>{setProductName(e.target.value)}} />
             </div>
 
@@ -291,7 +303,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
               <label htmlFor="short_description" className="form-label color_text_product">Nội dung sort</label>
               <textarea className="form-control" id="short_description" rows={2} 
               placeholder='vui lòng nhập nôi dụng mô tả ngắn ở đây' 
-              value={shortDescription} 
+              value={shortDescription ?? ''} // Nếu shortDescription là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
               onChange={(e)=>{setShortDescription(e.target.value)}} />
             </div>
 
@@ -302,7 +314,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
               <label htmlFor="description" className="form-label color_text_product">Nội dung chi tiết</label>
               <textarea className="form-control" id="description" rows={7} 
               placeholder='vui lòng nhập nôi dụng mô tả chi tiết ở đây'
-              value={description} 
+              value={description ?? ''} // Nếu description là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
               onChange={(e)=>{setDescription(e.target.value)}}/>
             </div>
 
@@ -318,8 +330,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <label htmlFor="standard_code" className="form-label color_text_product">Giá gốc</label>
                       <input type="number" className="form-control" id="standard_code" 
                       placeholder="Mời giá sản phẩm" 
-                      value={standardCost} 
-                      onChange={(e)=>{setStandardCost(e.target.value)}}/>
+                      value={standardCost ?? ''} // Nếu standardCost là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
+                      onChange={(e)=>{setStandardCost(Number(e.target.value))}}/>
                   </div>
                </div>
 
@@ -331,8 +343,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <label htmlFor="list_price" className="form-label color_text_product">Giá bán</label>
                       <input type="number" className="form-control" id="list_price" 
                       placeholder="Mời nhập giá bán sản phẩm" 
-                      value={listPrice} 
-                      onChange={(e)=>{setListPrice(e.target.value)}}/>
+                      value={listPrice ?? ''} // Nếu listPrice là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
+                      onChange={(e)=>{setListPrice(Number(e.target.value))}}/>
                   </div>
                </div>
 
@@ -344,8 +356,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <label htmlFor="quantity_per_unit" className="form-label color_text_product">Số lượng</label>
                       <input type="number" className="form-control" id="quantity_per_unit"
                        placeholder="Mời số lượng sản phẩm" 
-                       value={quantityPerUnit} 
-                      onChange={(e)=>{setQuantityPerUnit(e.target.value)}}/>
+                       value={quantityPerUnit ?? ''} // Nếu quantityPerUnit là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
+                      onChange={(e)=>{setQuantityPerUnit(Number(e.target.value))}}/>
                   </div>
                </div>
             </div><br/>
@@ -363,9 +375,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                   <div className="form-check form-switch">
                       <input className="form-check-input" type="checkbox" role="switch" id="discontinued" 
                       value="true" 
-                      //checked={updatingRow?.discontinued === 1 ? true : false}
-                      checked={discontinued}
-                      onChange={(e)=>{setDiscontinued(e.target.value)}}/>
+                      checked={discontinued ?? false} // Nếu discontinued là null hoặc undefined thì sẽ dùng giá trị false làm mặc định
+                      onChange={(e)=>{setDiscontinued(e.target.checked)}}/>
                       <label className="form-check-label color_text_product" htmlFor="discontinued">Ngưng dùng?</label>
                   </div>
                </div>
@@ -378,8 +389,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <input className="form-check-input" type="checkbox" role="switch" 
                       id="is_featured" 
                       value="true"
-                      checked={isFeatured}
-                      onChange={(e)=>{setIsFeatured(e.target.value)}}/>
+                      checked={isFeatured ?? false} // Nếu isFeatured là null hoặc undefined thì sẽ dùng giá trị false làm mặc định
+                      onChange={(e)=>{setIsFeatured(e.target.checked)}}/>
                       <label className="form-check-label color_text_product" htmlFor="is_featured">Làm nổi bật ?</label>
                   </div>
                </div>
@@ -391,8 +402,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                   <div className="form-check form-switch">
                       <input className="form-check-input" type="checkbox" role="switch" id="is_new" 
                       value="true" 
-                      checked={isNew}
-                      onChange={(e)=>{setIsNew(e.target.value)}}/>
+                      checked={isNew ?? false} // Nếu isNew là null hoặc undefined thì sẽ dùng giá trị false làm mặc định
+                      onChange={(e)=>{setIsNew(e.target.checked)}}/>
                       <label className="form-check-label color_text_product" htmlFor="is_new">Làm mới ?</label>
                   </div>
                </div>
@@ -410,8 +421,8 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <select 
                         id="category_id" 
                         className="form-control" 
-                        value={categoryId}
-                        onChange={(e) => setCategoryId(e.target.value)}
+                        value={categoryId ?? ''} // Nếu categoryId là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
+                        onChange={(e) => setCategoryId(Number(e.target.value))}
                       >
 
                       
@@ -436,9 +447,9 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
                       <label htmlFor="supplier_id" className="form-label color_text_product">Nhà cung cấp</label>
                       <select 
                         id='supplier_id' 
-                        value={supplierId}
+                        value={supplierId ?? ''}
                         className='form-control'  
-                        onChange={(e)=>{setSupplierId(e.target.value)}}
+                        onChange={(e)=>{setSupplierId(Number(e.target.value))}}
                        >
 
                       
@@ -472,7 +483,7 @@ const UpdateModal = ({id, listProduct, setListProduct}) => {
 
 export default UpdateModal;
 
-
+  
 
 
 

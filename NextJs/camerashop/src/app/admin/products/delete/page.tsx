@@ -5,20 +5,23 @@ import { useToast } from '@/context/ToastContext';
 //khai bao import ModalContext mau context chung vao: luu ý import cai useModal hook ở qt3 
 import {useModal} from "@/context/ModalContext"
 
+//import interface  types định kiểu dữ liệu cho dữ liệu cho page props del Product.
+import { DeleteProductPropsTypes, ModalContextType, ToastContextType} from "@/types/TsSetup";
+
 //import lib axios xử lý call api co mục select category và supplier id
 import axios from '@/lib/axios';
 
-const DeleteProductForm = ({id,listProduct, setListProduct}) => {
+const DeleteProductForm: React.FC<DeleteProductPropsTypes> = ({id, onReload}) => {
 
     //khai báo state tu useToast trong ToastContext truyền vào bien state
-    const {showToast} = useToast();
+    const {showToast} = useToast() as ToastContextType;
 
     //state trang thai dung voi useModal cua ModalContext:
-    const {openModal, closeModal, show, modalType} = useModal();
+    const {closeModal} = useModal() as ModalContextType;
     
     
    /** mehod xử lý xóa **/
-    const handleDeleteClick = async (e) => {
+    const handleDeleteClick = async (e: React.FormEvent<HTMLFormElement>) => {
          //ngăn sk mặc đinh khi nhấn nút submit của trình duyệt
          e.preventDefault()
 
@@ -31,14 +34,18 @@ const DeleteProductForm = ({id,listProduct, setListProduct}) => {
               //goi showToast vao de su dung hien thi TOast trong useEffect
               showToast(response.data.msg, 'success')
 
+              if (onReload) {
+                onReload();
+              }
+
               //close modal khi xóa thành công -xóa xong đóng hộp thoại xóa di
               closeModal()
 
-              // Cập nhật danh sách sản phẩm sau khi xóa -> refresh lại trang
-              const newListProduct = listProduct.filter((p) => !id.includes(p.id))
+              // // Cập nhật danh sách sản phẩm sau khi xóa -> refresh lại trang
+              // const newListProduct = listProduct.filter((p) => !id.includes(p.id))
              
               //cập nhật lại trạng thái 
-              setListProduct(newListProduct)            
+              // setListProduct(newListProduct)            
            }catch(error){
              const errorMessage = error.response?.data?.message || 'Có lỗi khi xóa sản phẩm!';
              showToast(errorMessage, 'danger');

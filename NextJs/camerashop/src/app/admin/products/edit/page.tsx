@@ -32,7 +32,7 @@ const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
   const [productName, setProductName] = useState<string | null>(null);
   const [shortDescription, setShortDescription] = useState<string | null>(null);
   const [description, setDescription] = useState<string | null>(null);
-  const [standardCost, setStandardCost] = useState<number | null>(null);
+  const [standardCode, setStandardCode] = useState<number | null>(null);
   const [listPrice, setListPrice] = useState<number | null>(null);
   const [quantityPerUnit, setQuantityPerUnit] = useState<number | null>(null);
   const [discontinued, setDiscontinued] = useState<boolean | null>(null);
@@ -92,7 +92,7 @@ const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
               productName: productName,
               shortDescription: shortDescription,
               description: description,
-              standardCost: standardCost,
+              standardCode: standardCode,
               listPrice: listPrice ,
               quantityPerUnit: quantityPerUnit,
               discontinued: discontinued,
@@ -204,7 +204,7 @@ const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
           setProductName(data.productName ?? '');
           setShortDescription(data.shortDescription ?? '');
           setDescription(data.description ?? '');
-          setStandardCost(data.standardCost ?? '');
+          setStandardCode(data.standardCode ?? '');
           setListPrice(data.listPrice ?? '');
           setQuantityPerUnit(data.quantityPerUnit ?? '');
           setDiscontinued(data.discontinued ?? false);
@@ -330,8 +330,8 @@ const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
                       <label htmlFor="standard_code" className="form-label color_text_product">Giá gốc</label>
                       <input type="number" className="form-control" id="standard_code" 
                       placeholder="Mời giá sản phẩm" 
-                      value={standardCost ?? ''} // Nếu standardCost là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
-                      onChange={(e)=>{setStandardCost(Number(e.target.value))}}/>
+                      value={standardCode ?? ''} // Nếu standardCode là null hoặc undefined thì sẽ dùng giá trị '' làm mặc định
+                      onChange={(e)=>{setStandardCode(Number(e.target.value))}}/>
                   </div>
                </div>
 

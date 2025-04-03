@@ -24,7 +24,7 @@ public class ShopProductUpdateRequestDTO {
     private String description;
 
     @NotNull(message = "gia nhap khong dc bo trong")
-    private long standardCost;
+    private long standardCode;
 
     @NotNull(message = "gia niem yet khong dc bo trong")
     private long listPrice;

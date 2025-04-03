@@ -213,7 +213,7 @@ public class ShopProductService {
 
         shopProductEnitty.setShortDescription(objCreate.getShortDescription());
         shopProductEnitty.setDescription(objCreate.getDescription());
-        shopProductEnitty.setStandardCost(objCreate.getStandardCost());
+        shopProductEnitty.setStandardCode(objCreate.getStandardCode());
         shopProductEnitty.setListPrice(objCreate.getListPrice());
         shopProductEnitty.setQuantityPerUnit(objCreate.getQuantityPerUnit());
 
@@ -422,8 +422,8 @@ public class ShopProductService {
             }
 
             //voi kieu in thi can kiem tra xem no co ton tai hay khong thi kiem tra voi ma 0 1
-            if(objUpdate.getStandardCost() >= 0){
-                enityUpdate.setStandardCost(objUpdate.getStandardCost());
+            if(objUpdate.getStandardCode() >= 0){
+                enityUpdate.setStandardCode(objUpdate.getStandardCode());
             }
             if(objUpdate.getListPrice() >= 0){
                 enityUpdate.setListPrice(objUpdate.getListPrice());

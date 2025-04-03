@@ -35,7 +35,7 @@ public class ShopProducts {
     private String description;
 
     @Column(name = "standard_cost")
-    private long standardCost;
+    private long standardCode;
 
     @Column(name = "list_price")
     private long listPrice;

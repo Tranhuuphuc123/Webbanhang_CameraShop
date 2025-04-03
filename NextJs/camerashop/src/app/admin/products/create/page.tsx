@@ -34,7 +34,7 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
   const [productName, setProductName] = useState<string | null>(null);
   const [shortDescription, setShortDescription] = useState<string | null>(null);
   const [description, setDescription] = useState<string | null>(null);
-  const [standardCost, setStandardCost] = useState<number | null>(null);
+  const [standardCode, setStandardCode] = useState<number | null>(null);
   const [listPrice, setListPrice] = useState<number | null>(null);
   const [quantityPerUnit, setQuantityPerUnit] = useState<number | null>(null);
   const [discontinued, setDiscontinued] = useState<boolean | null>(null);
@@ -99,7 +99,7 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
               productName: productName,
               shortDescription: shortDescription,
               description: description,
-              standardCost: standardCost,
+              standardCode: standardCode,
               listPrice: listPrice ,
               quantityPerUnit: quantityPerUnit,
               discontinued: discontinued,
@@ -262,7 +262,7 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
                   <div className="mb-3">
                       <label htmlFor="standard_code" className="form-label color_text_product">Giá gốc</label>
                       <input type="number" className="form-control" id="standard_code" placeholder="Mời giá sản phẩm" 
-                      onChange={(e)=>{setStandardCost(Number(e.target.value))}}/>
+                      onChange={(e)=>{setStandardCode(Number(e.target.value))}}/>
                   </div>
                </div>
 

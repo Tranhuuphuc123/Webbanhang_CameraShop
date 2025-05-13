@@ -64,7 +64,7 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
   /**method: xử lý xem trc img trc khi create **/
   const handleImgPreview = (e: React.ChangeEvent<HTMLInputElement>) => {
     //đọc nd tập tin cần hiển thị
-    const file = e.target.files[0]
+    const file = e.target.files?.[0]
     if(file){
       //tạo Url láy địa chứa img xem trước
       const preView = URL.createObjectURL(file)
@@ -144,7 +144,7 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
           //close modal khi xóa thành công -xóa xong đóng hộp thoại xóa di
           closeModal()
              
-        }catch(error){
+        }catch(error: any){
           const errorMessage = error.response?.data?.message || 'Có lỗi khi thêm sản phẩm!';
           showToast(errorMessage, 'danger');
         }
@@ -185,6 +185,8 @@ const CreateModal: React.FC<CreateProductPropsTypes> = ({onReload}) => {
    fetchCategory()
    fetchSuppliers()
  }, [])
+
+ 
 
   return(
      <>

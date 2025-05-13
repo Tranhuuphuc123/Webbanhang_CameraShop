@@ -152,7 +152,8 @@ const Products = () => {
         fetchProduct();
     }
 
-     
+
+  
     /******************xử lý phân trang**************************** */
     //tạo mảng chứa số trang để hiển thị ra giao diện
     const pageNumbers = []
@@ -167,9 +168,7 @@ const Products = () => {
     }
 
 
-
-
-
+ 
     /***method fetchProduct: gọi api xử lý phân trang và search: theo ten va theo ma***/
     //ApiResponseTypes: định kiểu dữ liệu trả về từ api
     const fetchProduct = async ()=>{
@@ -369,8 +368,7 @@ const Products = () => {
                      <Modal.Title>Xác nhận xóa hàng loạt {listSelectedId.join(', ')} </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <BatchDelete ids={listSelectedId} listProduct={listProduct} 
-                    setListProduct={setListProduct} setListSelectedId={setListSelectedId}/>
+                    <BatchDelete ids={listSelectedId} onReload={handleReload}/>
                 </Modal.Body>
             </Modal>
 

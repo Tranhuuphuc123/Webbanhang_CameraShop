@@ -16,3 +16,31 @@ navBar.forEach(function (a) {
         navCollapse.classList.remove("show");
     })
 })
+
+// =====================
+// SECTION 3: FLASH SALE TABS UI - homepage
+// =====================
+document.addEventListener('DOMContentLoaded', function() {
+  const tabBtns = document.querySelectorAll('.pv-flashsale-tab');
+  const tabContent = document.querySelector('.pv-flashsale-tab-content');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      tabBtns.forEach(b => b.classList.remove('hovered'));
+      btn.classList.add('hovered');
+      if(tabContent) tabContent.classList.add('pv-flashsale-tab-content-hovered');
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.classList.remove('hovered');
+      if(tabContent) tabContent.classList.remove('pv-flashsale-tab-content-hovered');
+    });
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+});
+// =====================
+// END SECTION 3
+// =====================
+

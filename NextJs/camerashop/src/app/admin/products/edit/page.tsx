@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 //import interface  types định kiểu dữ liệu cho dữ liệu cho page props edit product
 import {EditProductPropsTypes, ModalContextType, ToastContextType, CategoryTypes,
-  SupplierTypes, ToastContextType } from "@/types/TsSetup";
+  SupplierTypes } from "@/types/TsSetup";
 
 //import useToast trong ToastContext(viết riêng chuẩn context ấy) để sử dụng cho trang create products
 import { useToast } from '@/context/ToastContext';
@@ -138,7 +138,7 @@ const UpdateModal: React.FC<EditProductPropsTypes> = ({id, onReload}) => {
           //close modal khi xóa thành công -xóa xong đóng hộp thoại xóa di
           closeModal()    
 
-        }catch(error){
+        }catch(error:any){
           const errorMessage = error.response?.data?.message || 'Có lỗi khi update sản phẩm!';
           showToast(errorMessage, 'danger');
         }

@@ -46,7 +46,7 @@ const DeleteProductForm: React.FC<DeleteProductPropsTypes> = ({id, onReload}) =>
              
               //cập nhật lại trạng thái 
               // setListProduct(newListProduct)            
-           }catch(error){
+           }catch(error:any){
              const errorMessage = error.response?.data?.message || 'Có lỗi khi xóa sản phẩm!';
              showToast(errorMessage, 'danger');
            }

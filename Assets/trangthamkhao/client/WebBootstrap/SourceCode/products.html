@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce Shopping Website</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- ƠWM CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_child.css">
+    <link rel="stylesheet" href="./assets/css/responsive-style.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- menu lenh -->
+    <nav class="pv-menu navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pvNavbar" aria-controls="pvNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pvNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-boxes-stacked"></i> Sản phẩm</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-regular fa-circle-question"></i> Hỗ trợ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Header -->
+    <div class="pv-header-main py-2 bg-white border-bottom">
+      <div class="container-fluid">
+        
+        <div class="row align-items-center p-2">
+          <div class="col-6 col-md-2 text-center text-md-start mb-2 mb-md-0">
+            <img src="./assets/images/logo.png" alt="Logo" style="height:40px;">
+          </div>
+
+          <!-- Danh mục sản phẩm button -->
+          <div class="col-6 col-md-3 mb-2 mb-md-0 d-flex align-items-center">
+            <button class="btn btn-outline-secondary d-flex align-items-center" 
+            style="border-radius:8px; color:#7b8190; border-color:#e3e6ed; background:#fff; font-weight:500;">
+              <i class="fa-solid fa-bars me-2"></i> Danh mục
+            </button>
+          </div>
+          
+          <!-- Tìm kiếm sản phẩm -->
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Nhập từ khoá cần tìm" aria-label="Search">
+              <button class="btn btn-light border" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <!-- <div class="pv-keyword mt-1" style="font-size:0.95rem; color:#888;">
+              RTX 5070 Ti &nbsp; Mac Mini M4 &nbsp; iPhone 16e &nbsp; Thinkpad &nbsp; Màn Hình &nbsp; Build PC
+            </div> -->
+          </div>
+          <div class="col-6 col-md-4 text-end">
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-user fa-lg"></i><span class="d-none d-md-inline ms-1">Đăng nhập<br><span style="font-size:0.9em;">Đăng ký</span></span></a>
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-bell fa-lg"></i></a>
+            <a href="#" class="text-secondary d-inline-block"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="d-none d-md-inline ms-1">Giỏ hàng của bạn<br><span style="font-size:0.9em;">(0) sản phẩm</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ******************************************************************************************** -->
+
+<!--session1: nav logo-->
+<div class="d-flex flex-column section1-hero-flex mb-3">
+  <div class="d-flex align-items-center justify-content-between w-100 mb-1">
+    <nav class="breadcrumb mb-0 bg-transparent p-0 small">
+      <a class="text-primary" href="#">Trang chủ&nbsp;</a>
+      <span class="breadcrumb-item active">/ Laptop</span>
+    </nav>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-between w-100 mt-5">
+    <!-- Bên trái: Nội dung -->
+    <div class="d-flex flex-column justify-content-center flex-grow-1">
+      <h1 class="section1-title text-primary mb-2">Laptop</h1>
+      <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span class="section1-desc">Tìm sản phẩm theo nhu cầu</span>
+        <button class="btn btn-outline-secondary d-flex align-items-center section1-filter-btn">
+          <i class="fa fa-filter me-2"></i> Dùng bộ lọc ngay
+        </button>
+      </div>
+    </div>
+    <!-- Bên phải: Ảnh minh họa -->
+    <div class="ms-3 d-none d-md-flex align-items-center justify-content-end section1-illustration">
+      <img src="./assets/images/img/img-1.jpg" alt="Laptop Illustration" class="section1-img-hero">
+    </div>
+  </div>
+</div>
+
+<!-- ******************************************************************************************** -->
+
+
+  <!--session2: lib swipper js show các nhãn hàng--->
+   <!-- Swiper -->
+   <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/acer.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/asus.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/dell.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/hp.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/lenovo.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/msi.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/hp.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/images/logo/lenovo.webp" />
+      </div>
+        <div class="swiper-slide">
+        <img src="./assets/images/logo/msi.webp" />
+      </div>
+      
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+   <!-- Demo styles -->
+   <style>
+    .swiper {
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .swiper-slide {
+      width: 150px !important;   /* hoặc giá trị bạn muốn */
+      height: 60px;  /* hoặc giá trị bạn muốn */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+      box-shadow: none !important;
+      /* background: none; */
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+    .swiper-slide:hover{
+       border: 2px solid #d31515c4;
+       border-radius: 10px;
+    }
+    
+    .swiper {
+      padding-bottom: 10px;
+    }
+  </style>
+
+
+<!-- ******************************************************************************************** -->
+
+
+
+ <!-- SECTION3: quảng cáo -->
+ <section id="deal" class="mt-3">
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center border border-white deal-of-the-day py-5">
+              <div class="text-content py-5">
+                <h2>DEALS OF THE DAY</h2>
+                <h4>UPTO 69% OFF</h4>
+                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                  amet leo. Mauris feugiat erat tellus.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </section>
+ <!-- END SECTION5: tin công nghệ: carousel swiffer -->
+
+
+<!-- ******************************************************************************************** -->
+
+<!--session 4: mục lục các products-->
+
+<section class="product-category-list my-4">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+      <div class="col-6 col-sm-4 col-md-2 me-4">
+        <div class="category-card text-center">
+          <img src="assets/images/img/img-1.jpg" alt="AI" class="category-icon mb-2">
+          <div class="category-title">AI</div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 me-4">
+        <div class="category-card text-center">
+          <img src="assets/images/img/img-2.jpg" alt="Gaming - Đồ họa" class="category-icon mb-2">
+          <div class="category-title">Gaming - Đồ họa</div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 me-4">
+        <div class="category-card text-center">
+          <img src="assets/images/img/img-3.jpg" alt="Sinh viên - Văn phòng" class="category-icon mb-2">
+          <div class="category-title">Sinh viên - Văn phòng</div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 me-4">
+        <div class="category-card text-center">
+          <img src="assets/images/img/img-4.jpg" alt="Mỏng nhẹ" class="category-icon mb-2">
+          <div class="category-title">Mỏng nhẹ</div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 me-4">
+        <div class="category-card text-center">
+          <img src="assets/images/img/b-1.jpg" alt="Doanh nhân" class="category-icon mb-2">
+          <div class="category-title">Doanh nhân</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+<!--session 5: products liệt kê-->
+<section class="product-listing-section my-4">
+  <div class="container-fluid">
+    <div class="row product-listing-grid">
+      <!-- Bộ lọc tìm kiếm (Sidebar) -->
+      <aside class="col-lg-3 col-md-4 mb-3 product-filter-col">
+        <div class="product-filter-box p-3">
+          <h5 class="fw-bold mb-3"><i class="fa fa-filter me-2"></i>Bộ lọc tìm kiếm</h5>
+          <div class="mb-3">
+            <div class="fw-bold mb-2">Hãng sản xuất</div>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button class="btn btn-outline-secondary btn-sm">Asus</button>
+              <button class="btn btn-outline-secondary btn-sm">Apple</button>
+              <button class="btn btn-outline-secondary btn-sm">Lenovo</button>
+              <button class="btn btn-outline-secondary btn-sm">Acer</button>
+              <button class="btn btn-outline-secondary btn-sm">MSI</button>
+              <button class="btn btn-outline-secondary btn-sm">Dell</button>
+            </div>
+            <a href="#" class="small text-primary">Xem thêm</a>
+          </div>
+          <div class="mb-3">
+            <div class="fw-bold mb-2">Mức giá</div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="allPrice" checked>
+              <label class="form-check-label" for="allPrice">Tất cả</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price1">
+              <label class="form-check-label" for="price1">Dưới 10 triệu</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price2">
+              <label class="form-check-label" for="price2">Từ 10 - 15 triệu</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price3">
+              <label class="form-check-label" for="price3">Từ 15 - 20 triệu</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price4">
+              <label class="form-check-label" for="price4">Từ 20 - 25 triệu</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price5">
+              <label class="form-check-label" for="price5">Từ 25 - 30 triệu</label>
+            </div>
+            <div class="form-check mb-1">
+              <input class="form-check-input" type="radio" name="price" id="price6">
+              <label class="form-check-label" for="price6">Trên 30 triệu</label>
+            </div>
+            <div class="mt-2">
+              <div class="small mb-1">Hoặc nhập khoảng giá phù hợp với bạn:</div>
+              <div class="d-flex align-items-center gap-2">
+                <input type="number" class="form-control form-control-sm" placeholder="Từ" style="max-width:90px;">
+                <span>~</span>
+                <input type="number" class="form-control form-control-sm" placeholder="Đến" style="max-width:90px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Danh sách sản phẩm (Main) -->
+      <main class="col-lg-9 col-md-8 product-list-col">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+          <div class="fw-bold">Tìm thấy <span class="text-primary">366</span> kết quả</div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="me-1">Sắp xếp theo:</span>
+            <select class="form-select form-select-sm" style="width:auto;">
+              <option>Nổi bật</option>
+              <option>Giá thấp đến cao</option>
+              <option>Giá cao đến thấp</option>
+              <option>Mới nhất</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="row g-3 product-card-list">
+          <!-- Card sản phẩm mẫu -->
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <!-- card 1 -->
+            <div class="product-card h-100 me-3">
+              <div class="product-card-img-wrap">
+                <img src="assets/images/img/img-1.jpg" alt="Laptop 1" class="product-card-img">
+                <div class="product-card-badge">Trả góp 0%</div>
+                <div class="product-card-sale">-5%</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-title">Laptop Dell Inspiron 15 3520 i5 1235U/16GB/512GB/15.6"FHD</div>
+                <div class="product-card-price-row">
+                  <span class="product-card-oldprice">17.290.000 đ</span>
+                  <span class="product-card-price">16.490.000 đ</span>
+                </div>
+                <div class="product-card-desc">Giảm 800.000 đ</div>
+                <div class="product-card-note">Tặng Office Home 2024, Độ bền chuẩn quân đội</div>
+                <div class="product-card-payments mt-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" style="max-width:28px;">
+                </div>
+                <div class="mt-2">
+                  <a href="#" class="small text-primary">So sánh</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- card 2 -->
+            <div class="product-card h-100 me-3">
+              <div class="product-card-img-wrap">
+                <img src="assets/images/img/img-1.jpg" alt="Laptop 1" class="product-card-img">
+                <div class="product-card-badge">Trả góp 0%</div>
+                <div class="product-card-sale">-5%</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-title">Laptop Dell Inspiron 15 3520 i5 1235U/16GB/512GB/15.6"FHD</div>
+                <div class="product-card-price-row">
+                  <span class="product-card-oldprice">17.290.000 đ</span>
+                  <span class="product-card-price">16.490.000 đ</span>
+                </div>
+                <div class="product-card-desc">Giảm 800.000 đ</div>
+                <div class="product-card-note">Tặng Office Home 2024, Độ bền chuẩn quân đội</div>
+                <div class="product-card-payments mt-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" style="max-width:28px;">
+                </div>
+                <div class="mt-2">
+                  <a href="#" class="small text-primary">So sánh</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- card 3 -->
+            <div class="product-card h-100 me-3">
+              <div class="product-card-img-wrap">
+                <img src="assets/images/img/img-1.jpg" alt="Laptop 1" class="product-card-img">
+                <div class="product-card-badge">Trả góp 0%</div>
+                <div class="product-card-sale">-5%</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-title">Laptop Dell Inspiron 15 3520 i5 1235U/16GB/512GB/15.6"FHD</div>
+                <div class="product-card-price-row">
+                  <span class="product-card-oldprice">17.290.000 đ</span>
+                  <span class="product-card-price">16.490.000 đ</span>
+                </div>
+                <div class="product-card-desc">Giảm 800.000 đ</div>
+                <div class="product-card-note">Tặng Office Home 2024, Độ bền chuẩn quân đội</div>
+                <div class="product-card-payments mt-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" style="max-width:28px;">
+                </div>
+                <div class="mt-2">
+                  <a href="#" class="small text-primary">So sánh</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- card 4 -->
+            <div class="product-card h-100 me-3">
+              <div class="product-card-img-wrap">
+                <img src="assets/images/img/img-1.jpg" alt="Laptop 1" class="product-card-img">
+                <div class="product-card-badge">Trả góp 0%</div>
+                <div class="product-card-sale">-5%</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-title">Laptop Dell Inspiron 15 3520 i5 1235U/16GB/512GB/15.6"FHD</div>
+                <div class="product-card-price-row">
+                  <span class="product-card-oldprice">17.290.000 đ</span>
+                  <span class="product-card-price">16.490.000 đ</span>
+                </div>
+                <div class="product-card-desc">Giảm 800.000 đ</div>
+                <div class="product-card-note">Tặng Office Home 2024, Độ bền chuẩn quân đội</div>
+                <div class="product-card-payments mt-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" style="max-width:28px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" style="max-width:28px;">
+                </div>
+                <div class="mt-2">
+                  <a href="#" class="small text-primary">So sánh</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+
+
+    <!-- SECTION 7 footer -->
+    <footer>
+      <div class="footer-main pt-5 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">KẾT NỐI VỚI FPT SHOP</h6>
+              <div class="footer-social mb-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><img src="https://static.zalo.me/logo/zalo-logo.png" alt="Zalo" style="width: 24px; height: 24px; background: #fff; border-radius: 50%; padding: 2px;"></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+              </div>
+              <div class="small mb-1">TỔNG ĐÀI MIỄN PHÍ</div>
+              <div class="small">Tư vấn mua hàng: <b>1800.6601</b> (Nhánh 1)</div>
+              <div class="small">Hỗ trợ kỹ thuật: <b>1800.6601</b> (Nhánh 2)</div>
+              <div class="small">Góp ý, khiếu nại: <b>1800.6616</b> (8h00 - 22h00)</div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">VỀ CHÚNG TÔI</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Giới thiệu về công ty</a></li>
+                <li><a href="#">Quy chế hoạt động</a></li>
+                <li><a href="#">Dự án Doanh nghiệp</a></li>
+                <li><a href="#">Tin tức khuyến mại</a></li>
+                <li><a href="#">Giới thiệu máy đổi trả</a></li>
+                <li><a href="#">Hướng dẫn mua hàng & thanh toán online</a></li>
+                <li><a href="#">Đại lý uỷ quyền & TTBH uỷ quyền của Apple</a></li>
+                <li><a href="#">Tra cứu hoá đơn điện tử</a></li>
+                <li><a href="#">Tra cứu bảo hành</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">CHÍNH SÁCH</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Chính sách bảo hành</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Chính sách trả góp</a></li>
+                <li><a href="#">Chính sách khui hộp sản phẩm</a></li>
+                <li><a href="#">Chính sách giao hàng & lắp đặt</a></li>
+                <li><a href="#">Chính sách mang đi động FPT</a></li>
+                <li><a href="#">Chính sách thu thập & xử lý dữ liệu cá nhân</a></li>
+                <li><a href="#">Quy định về hỗ trợ kỹ thuật & sao lưu dữ liệu</a></li>
+                <li><a href="#">Chính sách giao hàng & lắp đặt Điện máy, Gia dụng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">HỖ TRỢ THANH TOÁN</h6>
+              <div class="mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" class="img-fluid mb-2" style="max-width:40px;">
+              </div>
+              <h6 class="mb-2">CHỨNG NHẬN</h6>
+              <img src="https://www.dmca.com/img/dmca-badge-w200-5x1-01.png" alt="DMCA" class="img-fluid me-2" style="max-width: 60px;">
+              <img src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/logo-bo-cong-thuong-mau-xanh-inkythuatso-01-13-15-31-05.jpg" alt="Bộ Công Thương" class="img-fluid" style="max-width: 60px;">
+            </div>
+          </div>
+          <hr class="my-4">
+          <div class="row">
+            <div class="col-12 text-center small">
+              © 2025 FPT Shop. All Rights Reserved. Địa chỉ: 261 - 263 Khánh Hội, P2, Q4, TP. HCM. GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012.<br>
+              GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018 - Điện thoại: (028) 7302 3456 - Email: fptshop@fpt.com.vn
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
+    <!-- OWN JS -->
+     <script src="./assets/js/main.js"></script>
+
+      <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <!-- Initialize Swiper -->
+   <script>
+
+    // cách 1: 
+    //  var swiper = new Swiper(".mySwiper", {
+    //    effect: "coverflow",
+    //    grabCursor: true,
+    //    centeredSlides: true,
+    //    slidesPerView: "auto",
+    //    coverflowEffect: {
+    //      rotate: 0, //khong xoay
+    //      stretch: -40,   //không giản cách các card
+    //      depth: 0,  //khong hiệu ứng nổi khối
+    //      modifier: 1,  // Hệ số điều chỉnh hiệu ứng coverflow, giá trị càng lớn hiệu ứng càng mạnh
+    //      slideShadows: true,   //bóng dổ
+    //    },
+    //    pagination: {
+    //      el: ".swiper-pagination",
+    //    },
+    //  });
+
+    //cách 2: scroll không cần dùng efect coverflow để tránh hiệu ứng background tự thêm
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            // Không dùng effect: "coverflow"
+        });
+   </script>
+
+  
+
+</body>
+</html>

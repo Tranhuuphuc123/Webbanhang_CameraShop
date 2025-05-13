@@ -8,55 +8,76 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- ƠWM CSS -->
+        <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive-style.css">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ 
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar">
-    <!-- Header -->
-    <header>
-        <div class="top-header">
-            <div class="container d-flex justify-content-between align-items-center py-3">
-               <span>Free shipping for others over</span>
-               <span>Call: 800-6688-999</span>
-            </div>
+    <!-- menu lenh -->
+    <nav class="pv-menu navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pvNavbar" aria-controls="pvNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pvNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-boxes-stacked"></i> Sản phẩm</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-regular fa-circle-question"></i> Hỗ trợ</a></li>
+          </ul>
         </div>
+      </div>
+    </nav>
+    <!-- Main Header -->
+    <div class="pv-header-main py-2 bg-white border-bottom">
+      <div class="container-fluid">
+        
+        <div class="row align-items-center p-2">
+          <div class="col-6 col-md-2 text-center text-md-start mb-2 mb-md-0">
+            <img src="./assets/images/logo.png" alt="Logo" style="height:40px;">
+          </div>
 
-        <nav class="navbar navbar-expand-lg navigation-wrap">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <img src="./assets/images/logo.png" alt="logo" class="img-fluid">
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                <i class="fas fa-stream navbar-toggler-icon"></i>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#new-arrivals">New Arrivals</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#products">Products</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#deal">Deal of the day</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <!-- Danh mục sản phẩm button -->
+          <div class="col-6 col-md-3 mb-2 mb-md-0 d-flex align-items-center">
+            <button class="btn btn-outline-secondary d-flex align-items-center" 
+            style="border-radius:8px; color:#7b8190; border-color:#e3e6ed; background:#fff; font-weight:500;">
+              <i class="fa-solid fa-bars me-2"></i> Danh mục
+            </button>
+          </div>
+          
+          <!-- Tìm kiếm sản phẩm -->
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Nhập từ khoá cần tìm" aria-label="Search">
+              <button class="btn btn-light border" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <!-- <div class="pv-keyword mt-1" style="font-size:0.95rem; color:#888;">
+              RTX 5070 Ti &nbsp; Mac Mini M4 &nbsp; iPhone 16e &nbsp; Thinkpad &nbsp; Màn Hình &nbsp; Build PC
+            </div> -->
+          </div>
+          <div class="col-6 col-md-4 text-end">
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-user fa-lg"></i><span class="d-none d-md-inline ms-1">Đăng nhập<br><span style="font-size:0.9em;">Đăng ký</span></span></a>
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-bell fa-lg"></i></a>
+            <a href="#" class="text-secondary d-inline-block"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="d-none d-md-inline ms-1">Giỏ hàng của bạn<br><span style="font-size:0.9em;">(0) sản phẩm</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
 
-    </header>
+    <!-- ******************************************************************************************** -->
+
+   
 
     <!-- section 1 top banner -->
      <section id="home">
@@ -101,510 +122,459 @@
           </div>
      </section>
 
-    <!-- section 2 new arrivals -->
-     <section id="new-arrivals">
-      <div class="new-arrvials wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 mb-2 text-content text-center">
-              <h2>New Arrivals</h2>
-              <p >This unique jewelry is handcrafted on the beautiful island of Nantucket using fine silver and semi precious
-                stones. View glasse fashion colletion 2025 by Fanbong</p>
-              </p>
+
+
+
+
+<!-- ******************************************************************************************** -->
+
+   
+
+    <!-- section 2 ưu đãi hot -->
+    <section id="hot-offers">
+      <div class="container py-3">
+        <div class="row mb-3">
+          <div class="col-12">
+            <h2 class="fw-bold text-success" style="font-size:1.5rem;">ƯU ĐÃI HOT</h2>
+          </div>
+        </div>
+        <div class="hot-offer-row">
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Tải app" class="hot-offer-icon">
+              <div class="hot-offer-title">TẢI APP PHONG VŨ</div>
             </div>
           </div>
-          <div class="row align-items-center">
-            <div class="col-sm-4 col-12 p-sm-0 card-banner">
-              <div class="card-banner position-relative text-center">
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/img-1.jpg" alt="img-1" class="img-fluid">
-                </a>
-                <div class="banner-info text-center">
-                  <h2>BRACELETS</h2>
-                  <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod</p>
-                  <a href="#" class="main-btn">Shop now</a>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="Giờ vàng" class="hot-offer-icon">
+              <div class="hot-offer-title">GIỜ VÀNG GIÁ SỐC</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Laptop AI" class="hot-offer-icon">
+              <div class="hot-offer-title">LAPTOP AI</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="HSSV" class="hot-offer-icon">
+              <div class="hot-offer-title">ƯU ĐÃI HỌC SINH SINH VIÊN</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" alt="Giảm tới" class="hot-offer-icon">
+              <div class="hot-offer-title">ĐỒ GIA DỤNG</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="ASUS Fest" class="hot-offer-icon">
+              <div class="hot-offer-title">ASUS FEST</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="Trả góp" class="hot-offer-icon">
+              <div class="hot-offer-title">TRẢ GÓP 0%</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Apple" class="hot-offer-icon">
+              <div class="hot-offer-title">APPLE EDUCATION</div>
+            </div>
+          </div>
+          <div class="hot-offer-col">
+            <div class="hot-offer-item">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828917.png" alt="Freeship" class="hot-offer-icon">
+              <div class="hot-offer-title">FREESHIP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- ******************************************************************************************** -->
+
+   
+  <!--swipper js--->
+  <div class="mt-5">
+    <h4 class="fw-bold mb-3" style="color:#222;">TIN CÔNG NGHỆ</h4>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <!-- Card 1 -->
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                <p class="news-title">Xóa ngay 12 ứng dụng Android độc hại...</p>
+              </div>
+            </div>
+        </div>
+        <!-- Thêm các card khác nếu muốn -->
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+    
+  <style>
+        .swiper {
+          width: 100%;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .swiper-slide {
+          width: 320px;   /* hoặc giá trị bạn muốn */
+          height: 200px;  /* hoặc giá trị bạn muốn */
+          display: flex;
+          align-items: stretch;
+          justify-content: center;
+          background: none;
+        }
+
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+        }
+
+        .news-card {
+          background: #fff;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        .news-card img {
+          width: 100%;
+          height: 150px; /* hoặc giá trị bạn muốn */
+          object-fit: cover;
+          flex-shrink: 0;
+        }
+        .news-title {
+          font-size: 1rem;
+          color: #222;
+          font-weight: 500;
+          padding: 10px 10px 0 10px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+          text-overflow: ellipsis;
+          min-height: 2.6em;
+          background: #fff;
+        }
+
+        .swiper {
+          padding-bottom: 10px;
+}
+  </style>
+
+
+ <!-- ******************************************************************************************** -->
+
+   
+
+    <!--  SECTION 3 products (Flash Sale Tabs UI) -->
+    <section class="pv-section-flashsale my-4">
+      <div class="container">
+        <div class="pv-flashsale-header d-flex justify-content-between align-items-end mb-2">
+          <div class="pv-section-title text-primary fw-bold"><i class="fa-solid fa-bolt me-2"></i>SẢN PHẨM NỔI BẬT</div>
+          
+        </div>
+        <div class="pv-flashsale-tabs-ui-wrap">
+          <ul class="nav nav-tabs pv-flashsale-tabs mb-0" id="flashsaleTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active pv-flashsale-tab" id="tab-pc" data-bs-toggle="tab" data-bs-target="#pane-pc" type="button" role="tab" aria-controls="pane-pc" aria-selected="true">PC</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link pv-flashsale-tab" id="tab-laptop" data-bs-toggle="tab" data-bs-target="#pane-laptop" type="button" role="tab" aria-controls="pane-laptop" aria-selected="false">Laptop</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link pv-flashsale-tab" id="tab-mouse" data-bs-toggle="tab" data-bs-target="#pane-mouse" type="button" role="tab" aria-controls="pane-mouse" aria-selected="false">Chuột</button>
+            </li>
+          </ul>
+          <div class="tab-content pv-flashsale-tab-content" id="flashsaleTabContent">
+            <div class="tab-pane fade show active" id="pane-pc" role="tabpanel" aria-labelledby="tab-pc">
+              <div class="row align-items-stretch">
+                <!-- Bên trái: Quảng cáo Flash Sale -->
+                <div class="col-lg-4 col-md-5 mb-3 mb-md-0 d-flex flex-column justify-content-center align-items-center">
+                  <div class="pv-flashsale-ads text-center p-3">
+                    <div class="pv-flashsale-ads-title">FLASH SALE <br><span class="text-primary">ONLINE</span></div>
+                    <div class="pv-flashsale-ads-timer mt-2 mb-2">
+                      <span class="pv-flashsale-ads-label">Kết thúc sau</span>
+                      <div class="pv-flashsale-ads-clock d-flex justify-content-center gap-2 mt-1">
+                        <div class="pv-flashsale-ads-box">02</div>
+                        <div class="pv-flashsale-ads-box">12</div>
+                        <div class="pv-flashsale-ads-box">34</div>
+                        <div class="pv-flashsale-ads-box">56</div>
+                      </div>
+                    </div>
+                    <div class="pv-flashsale-ads-note mt-2">
+                      <span class="badge bg-info text-dark">*Sản phẩm và số lượng có hạn</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Bên phải: Card sản phẩm -->
+                <div class="col-lg-8 col-md-7">
+                  <div class="row ">
+                    <!-- card 1 -->
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-12">
+                      <div class="pv-pc-card">
+                        <div class="pv-pc-img-wrap">
+                          <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                          <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+                        </div>
+                        <div class="pv-pc-info">
+                          <div class="pv-pc-brand">PHONG VŨ</div>
+                          <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                          <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                          <div class="pv-pc-price-row">
+                            <span class="pv-pc-price">8.840.000 ₫</span>
+                            <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                            <span class="pv-pc-discount">-22,79%</span>
+                          </div>
+                          <div class="pv-pc-gift">
+                            <img src="./assets/images/gift1.png" alt="">
+                            <img src="./assets/images/gift2.png" alt="">
+                            <img src="./assets/images/gift3.png" alt="">
+                          </div>
+                          <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-sm-4 col-12 p-sm-0 card-banner">
-              <div class="card-banner position-relative text-center">
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/img-2.jpg" alt="img-1" class="img-fluid">
-                </a>
-                <div class="banner-info text-center">
-                  <h2>RINGS</h2>
-                  <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod</p>
-                  <a href="#" class="main-btn">Shop now</a>
+            
+            <div class="tab-pane fade" id="pane-laptop" role="tabpanel" aria-labelledby="tab-laptop">
+              <div class="row align-items-stretch">
+                
+                <!-- nd bên phải chứa các nd quảng cáo -->
+                <div class="col-lg-4 col-md-5 mb-3 mb-md-0 d-flex flex-column justify-content-center align-items-center">
+                  <div class="pv-flashsale-ads text-center p-3">
+                    <div class="pv-flashsale-ads-title">FLASH SALE <br><span class="text-primary">ONLINE</span></div>
+                    <div class="pv-flashsale-ads-timer mt-2 mb-2">
+                      <span class="pv-flashsale-ads-label">Kết thúc sau</span>
+                      <div class="pv-flashsale-ads-clock d-flex justify-content-center gap-2 mt-1">
+                        <div class="pv-flashsale-ads-box">02</div>
+                        <div class="pv-flashsale-ads-box">12</div>
+                        <div class="pv-flashsale-ads-box">34</div>
+                        <div class="pv-flashsale-ads-box">56</div>
+                      </div>
+                    </div>
+                    <div class="pv-flashsale-ads-note mt-2">
+                      <span class="badge bg-info text-dark">*Sản phẩm và số lượng có hạn</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- nd bên trai chưa các card item -->
+                <div class="col-lg-8 col-md-7">
+                  <div class="row">
+                    <!-- card 1 -->
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-12">
+                      <div class="pv-pc-card">
+                        <div class="pv-pc-img-wrap">
+                          <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                          <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+                        </div>
+                        <div class="pv-pc-info">
+                          <div class="pv-pc-brand">PHONG VŨ</div>
+                          <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                          <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                          <div class="pv-pc-price-row">
+                            <span class="pv-pc-price">8.840.000 ₫</span>
+                            <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                            <span class="pv-pc-discount">-22,79%</span>
+                          </div>
+                          <div class="pv-pc-gift">
+                            <img src="./assets/images/gift1.png" alt="">
+                            <img src="./assets/images/gift2.png" alt="">
+                            <img src="./assets/images/gift3.png" alt="">
+                          </div>
+                          <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-sm-4 col-12 p-sm-0 card-banner">
-              <div class="card-banner position-relative text-center">
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/img-3.jpg" alt="img-1" class="img-fluid">
-                </a>
-                <div class="banner-info text-center">
-                  <h2>EARRINGS</h2>
-                  <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod</p>
-                  <a href="#" class="main-btn">Shop now</a>
+
+            <div class="tab-pane fade" id="pane-mouse" role="tabpanel" aria-labelledby="tab-mouse">
+              <div class="row align-items-stretch">
+                <div class="col-lg-4 col-md-5 mb-3 mb-md-0 d-flex flex-column justify-content-center align-items-center">
+                  <div class="pv-flashsale-ads text-center p-3">
+                    <div class="pv-flashsale-ads-title">FLASH SALE <br><span class="text-primary">ONLINE</span></div>
+                    <div class="pv-flashsale-ads-timer mt-2 mb-2">
+                      <span class="pv-flashsale-ads-label">Kết thúc sau</span>
+                      <div class="pv-flashsale-ads-clock d-flex justify-content-center gap-2 mt-1">
+                        <div class="pv-flashsale-ads-box">02</div>
+                        <div class="pv-flashsale-ads-box">12</div>
+                        <div class="pv-flashsale-ads-box">34</div>
+                        <div class="pv-flashsale-ads-box">56</div>
+                      </div>
+                    </div>
+                    <div class="pv-flashsale-ads-note mt-2">
+                      <span class="badge bg-info text-dark">*Sản phẩm và số lượng có hạn</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <div class="row">
+                    <!-- card 1 -->
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-12">
+                      <div class="pv-pc-card">
+                        <div class="pv-pc-img-wrap">
+                          <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                          <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+                        </div>
+                        <div class="pv-pc-info">
+                          <div class="pv-pc-brand">PHONG VŨ</div>
+                          <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                          <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                          <div class="pv-pc-price-row">
+                            <span class="pv-pc-price">8.840.000 ₫</span>
+                            <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                            <span class="pv-pc-discount">-22,79%</span>
+                          </div>
+                          <div class="pv-pc-gift">
+                            <img src="./assets/images/gift1.png" alt="">
+                            <img src="./assets/images/gift2.png" alt="">
+                            <img src="./assets/images/gift3.png" alt="">
+                          </div>
+                          <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-     </section>
+    </section>
 
-    <!-- section 3 products -->
-     <section id="products" class="products">
-        <div class="wrapper">
-          <div class="container">
-            <div class="row">
-              <div class="col-12 text-content text-center">
-                <h2>BEST SELLERS</h2>
-                <p>At visus viverra adipiscing at. Iaculis urna id volutpat lacus lảoeet non curabitur. Enim lobortis
-                  scelerisque women dui faucibus in. Nisl suscipit adipiscing.</p>
-              </div>
-              <div class="col-12">
-                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="jwellery-tab" data-bs-toggle="tab" data-bs-target="#jwellery"
-                      type="button" role="tab" aria-controls="jwellery" aria-selected="true">Bracelets</button>              
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="ring-tab" data-bs-toggle="tab" data-bs-target="#ring"
-                      type="button" role="tab" aria-controls="ring" aria-selected="false">Rings</button>              
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="earings-tab" data-bs-toggle="tab" data-bs-target="#earings"
-                      type="button" role="tab" aria-controls="earings" aria-selected="true">Earrings</button>              
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent"> 
-                  <div class="tab-pane fade show active" id="jwellery" role="tabpanel" aria-labelledby="jwellery-tab">
-                    <div class="row">
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/b-1.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/b-2.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/b-3.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/b-4.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<!--END SECTION 3-->
 
 
-                  <div class="tab-pane fade " id="ring" role="tabpanel" aria-labelledby="ring-tab">
-                    <div class="row">
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/r-1.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/r-2.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/r-3.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/r-4.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
 
-                  <div class="tab-pane fade" id="earings" role="tabpanel" aria-labelledby="earings-tab">
-                    <div class="row">
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/e-1.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/e-2.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/e-3.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="item-product">
-                          <a href="#" class="product-thumb-link">
-                            <img src="./assets/images/product-img/e-4.jpg" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="product-info">
-                          <div class="d-flex justify-content-between py-3">
-                            <a href="#" class="cat-parent">Women</a>
-                            <a href="#" class="wishlist">
-                              <i class="fas fa-heart"></i>
-                            </a>
-                          </div>
-                          <h4 class="product-title">
-                            <a href="">Titanium ring in ged palladiumfinish metal</a>
-                          </h4>
-                          <div class="product-price">
-                            <ins><span class="money text-white">$300.00</span></ins>
-                          </div>
-                          <div class="d-flex align-items-center justify-content-between py-1">
-                            <div class="rating">
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                              <i class="far fa-star"></i>
-                            </div>
-                            <div class="basket">
-                              <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                  
 
-              </div>
-            </div>
+
+ 
+ <!-- SECTION 4: Danh mục nổi bật -->
+     <section id="featured-categories" class="my-4">
+      <div class="container bg-white rounded shadow-sm py-3 px-2">
+        <div class="d-flex align-items-center mb-3">
+          <h5 class="fw-bold mb-0" style="color:#222;">Danh mục nổi bật</h5>
+        </div>
+        <div class="d-flex flex-wrap justify-content-start gap-3 gap-md-4">
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041916.png" alt="Laptop"></div>
+            <div class="cat-feature-title">Laptop</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/747/747376.png" alt="Apple"></div>
+            <div class="cat-feature-title">Apple</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041913.png" alt="PC"></div>
+            <div class="cat-feature-title">PC</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041917.png" alt="Linh kiện"></div>
+            <div class="cat-feature-title">Linh Kiện</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041915.png" alt="Màn hình"></div>
+            <div class="cat-feature-title">Màn Hình</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041922.png" alt="Phụ kiện"></div>
+            <div class="cat-feature-title">Phụ Kiện</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041920.png" alt="Thiết bị mạng"></div>
+            <div class="cat-feature-title">Thiết Bị Mạng</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041921.png" alt="An ninh"></div>
+            <div class="cat-feature-title">Thiết Bị An Ninh</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041918.png" alt="Văn phòng"></div>
+            <div class="cat-feature-title">Thiết Bị Văn Phòng</div>
+          </div>
+          <div class="cat-feature-box text-center">
+            <div class="cat-feature-icon mb-2"><img src="https://cdn-icons-png.flaticon.com/128/1041/1041923.png" alt="Điện máy"></div>
+            <div class="cat-feature-title">Điện Máy - Điện Gia Dụng</div>
           </div>
         </div>
-      
-     </section>
+      </div>
+    </section>
 
-    <!-- section 4 choose -->
-     <section id="deal">
+   <!-- END SECTION 4: Danh mục nổi bật -->
+
+
+  <!-- ******************************************************************************************** -->
+
+
+
+     <!-- SECTION5: quảng cáo -->
+       <section id="deal">
         <div class="wrapper">
           <div class="container">
             <div class="row">
@@ -622,82 +592,196 @@
           </div>
         </div>
      </section>
+     <!-- END SECTION5: tin công nghệ: carousel swiffer -->
 
-    <!-- section 5 style -->
 
-    <section id="blog">
-      <div class="blog-section wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 mb-2 text-content text-center">
-              <h2>LASTEST NEW FROM THE BLOG</h2>
-              <p >This unique jewelry is handcraft on the beautiful island of Nantucket using fine silver and semi 
-              percious stones. View glasse fashion collection 2025 by Fanbong</p>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-4 col-sm-6 mb-4 mb-lg-0">
-              <div>
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/b-1.jpg" alt="blog-1" class="img-fluid">
-                </a>
-                <div class="text-center px-2 mt-2">
-                  <h2>Girls Wear Tops</h2>
-                  <p>Our urban and streetwear fashion place is no Old Navy, Banana Republic or Walmart clothing store,
-                  God forbid. We've quicly become...</p>
-                  <a href="" class="main-btn">Read More</a>
-                </div>
+
+     <!-- ******************************************************************************************** -->
+    <!-- section 6: PC page  -->
+    <section class="pv-section-pc my-4">
+      <div class="container pv-pc-container">
+        <div class="pv-pc-header d-flex justify-content-between align-items-end">
+          <div class="pv-section-title text-white fw-bold"><i class="fa-solid fa-desktop me-2"></i>PC</div>
+          <a href="#" class="pv-section-link text-white fw-bold">Xem tất cả <i class="fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="pv-pc-underline"></div>
+        <div class="row g-2 mt-2">
+          <!-- Card 1 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+            <div class="pv-pc-card">
+              <div class="pv-pc-img-wrap">
+                <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4 mb-lg-0">
-              <div>
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/b-2.jpg" alt="blog-1" class="img-fluid">
-                </a>
-                <div class="text-center px-2 mt-2">
-                  <h2>Girls A Necklace</h2>
-                  <p>Our urban and streetwear fashion place is no Old Navy, Banana Republic or Walmart clothing store,
-                  God forbid. We've quicly become...</p>
-                  <a href="" class="main-btn">Read More</a>
+              <div class="pv-pc-info">
+                <div class="pv-pc-brand">PHONG VŨ</div>
+                <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                <div class="pv-pc-price-row">
+                  <span class="pv-pc-price">8.840.000 ₫</span>
+                  <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                  <span class="pv-pc-discount">-22,79%</span>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4 mb-lg-0">
-              <div>
-                <a href="#" class="card-thumb">
-                  <img src="./assets/images/img/b-3.jpg" alt="blog-1" class="img-fluid">
-                </a>
-                <div class="text-center px-2 mt-2">
-                  <h2>Girls Wear Rings</h2>
-                  <p>Our urban and streetwear fashion place is no Old Navy, Banana Republic or Walmart clothing store,
-                  God forbid. We've quicly become...</p>
-                  <a href="" class="main-btn">Read More</a>
+                <div class="pv-pc-gift">
+                  <img src="./assets/images/gift1.png" alt="">
+                  <img src="./assets/images/gift2.png" alt="">
+                  <img src="./assets/images/gift3.png" alt="">
                 </div>
+                <button class="btn pv-pc-btn">Thêm vào giỏ</button>
               </div>
             </div>
           </div>
+          <!-- card 2 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+            <div class="pv-pc-card">
+              <div class="pv-pc-img-wrap">
+                <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+              </div>
+              <div class="pv-pc-info">
+                <div class="pv-pc-brand">PHONG VŨ</div>
+                <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                <div class="pv-pc-price-row">
+                  <span class="pv-pc-price">8.840.000 ₫</span>
+                  <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                  <span class="pv-pc-discount">-22,79%</span>
+                </div>
+                <div class="pv-pc-gift">
+                  <img src="./assets/images/gift1.png" alt="">
+                  <img src="./assets/images/gift2.png" alt="">
+                  <img src="./assets/images/gift3.png" alt="">
+                </div>
+                <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </div>
+           <!-- card 3 -->
+           <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+            <div class="pv-pc-card">
+              <div class="pv-pc-img-wrap">
+                <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+              </div>
+              <div class="pv-pc-info">
+                <div class="pv-pc-brand">PHONG VŨ</div>
+                <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                <div class="pv-pc-price-row">
+                  <span class="pv-pc-price">8.840.000 ₫</span>
+                  <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                  <span class="pv-pc-discount">-22,79%</span>
+                </div>
+                <div class="pv-pc-gift">
+                  <img src="./assets/images/gift1.png" alt="">
+                  <img src="./assets/images/gift2.png" alt="">
+                  <img src="./assets/images/gift3.png" alt="">
+                </div>
+                <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </div>
+           <!-- card 4 -->
+           <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+            <div class="pv-pc-card">
+              <div class="pv-pc-img-wrap">
+                <img src="./assets/images/img/b-1.jpg" alt="PC 1" class="pv-pc-img">
+                <div class="pv-pc-badge">TIẾT KIỆM<br>2.609.000 ₫</div>
+              </div>
+              <div class="pv-pc-info">
+                <div class="pv-pc-brand">PHONG VŨ</div>
+                <div class="pv-pc-title">PC PV Home Office I50168 (Intel Core i5-12400F/ 2 x 8GB/ 500GB SSD/ Free DOS)</div>
+                <div class="pv-pc-combo">COMBO GIẢM ~ 3.258.000 ₫</div>
+                <div class="pv-pc-price-row">
+                  <span class="pv-pc-price">8.840.000 ₫</span>
+                  <span class="pv-pc-oldprice">11.449.000 ₫</span>
+                  <span class="pv-pc-discount">-22,79%</span>
+                </div>
+                <div class="pv-pc-gift">
+                  <img src="./assets/images/gift1.png" alt="">
+                  <img src="./assets/images/gift2.png" alt="">
+                  <img src="./assets/images/gift3.png" alt="">
+                </div>
+                <button class="btn pv-pc-btn">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
 
-    <!-- section 6 footer -->
-    <footer>
-      <div class="footer py-4">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6 text-md-start text-center text-lg-start">
-              <div class="footer-logo text-muted mb-3 mb-md-0">
-                © 2025 Ecommerce Shopping Website. All Rights Reserved.
-              </div>
-            </div>
-            <div class="col-md-6 text-center text-lg-end">
-              <div class="footer-social pt-1">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+    <!-- END SECTION 6-->
 
+
+    <!-- ******************************************************************************************** -->
+    
+    <!-- SECTION 7 footer -->
+    <footer>
+      <div class="footer-main pt-5 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">KẾT NỐI VỚI FPT SHOP</h6>
+              <div class="footer-social mb-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><img src="https://static.zalo.me/logo/zalo-logo.png" alt="Zalo" style="width: 24px; height: 24px; background: #fff; border-radius: 50%; padding: 2px;"></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+              </div>
+              <div class="small mb-1">TỔNG ĐÀI MIỄN PHÍ</div>
+              <div class="small">Tư vấn mua hàng: <b>1800.6601</b> (Nhánh 1)</div>
+              <div class="small">Hỗ trợ kỹ thuật: <b>1800.6601</b> (Nhánh 2)</div>
+              <div class="small">Góp ý, khiếu nại: <b>1800.6616</b> (8h00 - 22h00)</div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">VỀ CHÚNG TÔI</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Giới thiệu về công ty</a></li>
+                <li><a href="#">Quy chế hoạt động</a></li>
+                <li><a href="#">Dự án Doanh nghiệp</a></li>
+                <li><a href="#">Tin tức khuyến mại</a></li>
+                <li><a href="#">Giới thiệu máy đổi trả</a></li>
+                <li><a href="#">Hướng dẫn mua hàng & thanh toán online</a></li>
+                <li><a href="#">Đại lý uỷ quyền & TTBH uỷ quyền của Apple</a></li>
+                <li><a href="#">Tra cứu hoá đơn điện tử</a></li>
+                <li><a href="#">Tra cứu bảo hành</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">CHÍNH SÁCH</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Chính sách bảo hành</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Chính sách trả góp</a></li>
+                <li><a href="#">Chính sách khui hộp sản phẩm</a></li>
+                <li><a href="#">Chính sách giao hàng & lắp đặt</a></li>
+                <li><a href="#">Chính sách mang đi động FPT</a></li>
+                <li><a href="#">Chính sách thu thập & xử lý dữ liệu cá nhân</a></li>
+                <li><a href="#">Quy định về hỗ trợ kỹ thuật & sao lưu dữ liệu</a></li>
+                <li><a href="#">Chính sách giao hàng & lắp đặt Điện máy, Gia dụng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">HỖ TRỢ THANH TOÁN</h6>
+              <div class="mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" class="img-fluid mb-2" style="max-width:40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" class="img-fluid mb-2" style="max-width:40px;">
+              </div>
+              <h6 class="mb-2">CHỨNG NHẬN</h6>
+              <img src="https://www.dmca.com/img/dmca-badge-w200-5x1-01.png" alt="DMCA" class="img-fluid me-2" style="max-width: 60px;">
+              <img src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/logo-bo-cong-thuong-mau-xanh-inkythuatso-01-13-15-31-05.jpg" alt="Bộ Công Thương" class="img-fluid" style="max-width: 60px;">
+            </div>
+          </div>
+          <hr class="my-4">
+          <div class="row">
+            <div class="col-12 text-center small">
+              © 2025 FPT Shop. All Rights Reserved. Địa chỉ: 261 - 263 Khánh Hội, P2, Q4, TP. HCM. GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012.<br>
+              GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018 - Điện thoại: (028) 7302 3456 - Email: fptshop@fpt.com.vn
             </div>
           </div>
         </div>
@@ -711,8 +795,48 @@
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+  
     <!-- OWN JS -->
      <script src="./assets/js/main.js"></script>
+
+      <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <!-- Initialize Swiper -->
+   <script>
+
+    // cách 1: có hiệu ứng khi scroll coverflowEffect sẽ khối màu xám nếu chưa scroll tới
+    //  var swiper = new Swiper(".mySwiper", {
+    //    effect: "coverflow",
+    //    grabCursor: true,
+    //    centeredSlides: true,
+    //    slidesPerView: "auto",
+    //    coverflowEffect: {
+    //      rotate: 0, //khong xoay
+    //      stretch: -20,   //không giản cách các card
+    //      depth: 0,  //khong hiệu ứng nổi khối
+    //      modifier: 1,  // Hệ số điều chỉnh hiệu ứng coverflow, giá trị càng lớn hiệu ứng càng mạnh
+    //      slideShadows: true,   //bóng dổ
+    //    },
+    //    pagination: {
+    //      el: ".swiper-pagination",
+    //    },
+    //  });
+
+
+    //cách 2: tắt hiệu ứng coverflowEffect đó đi
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        grabCursor: true,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        // Không dùng effect: "coverflow"
+    });
+   </script>
+
+  
+
 </body>
 </html>

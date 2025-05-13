@@ -74,6 +74,12 @@ export interface DeleteProductPropsTypes {
     onReload?: () => void;
 }
 
+/**interface cho xóa hàng loạt**/
+export interface BatchDeletePropsTypes {
+    ids: string[];
+    onReload?: () => void;
+}
+
 /**khai báo types cho modal context tự viết **/
 export interface ModalContextType {
     openModal: (type: string) => void;

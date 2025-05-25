@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,12 +20,24 @@ public class AclUserHasRoles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
-
-    @Column(name = "role_id")
-    private int roleId;
+    /****NOTE: KHI SỬ DỤNG ANNOTATION THI ĐÃ CÓ LK CÁC CỘT HÀNG NEN KHÔNG CẦN KHAI BÁO RA*****/
+//    @Column(name = "user_id")
+//    private int userId;
+//
+//    @Column(name = "role_id")
+//    private int roleId;
 
     //get set dung loombook
+
+    /******khóa ngoại liên kết******
+     * '@ManyToOne': annotation chỉ liên kết giưã hai enity với nhau
+     * quan hệ userhasroles với user là quan hệ N-1
+     * */
+    @ManyToOne
+    private AclUser user;
+
+    //lien ket khoa ngoai quan he  N - 1 vơi table role
+    @ManyToOne
+    private AclRole role;
 
 }

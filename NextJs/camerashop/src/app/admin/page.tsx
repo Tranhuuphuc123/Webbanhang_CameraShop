@@ -1,7 +1,10 @@
+"use client"
+
 const dashboard = ( ) => {
   return(
      <>
-        <h1>trang dashboard</h1>
+        <h1>dashboard admin</h1>
+
      </>
   )
 }

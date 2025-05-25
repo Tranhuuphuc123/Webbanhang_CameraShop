@@ -78,6 +78,12 @@ use camera24h;
      updated_at timestamp
   );
   
+   -- create table acle_user_has_permisions
+  create table acl_user_has_permissions(
+	id int unsigned not null auto_increment primary key,
+    user_id int  unsigned not null,
+    permission_id int unsigned not null
+  );
   
   -- d/ create ban phu phat sinh cua hai ban acl_role va acl_permissions
   create table acl_rol_has_permissions(
@@ -232,6 +238,11 @@ create table shop_product_images(
   alter table acl_rol_has_permissions add constraint fk_arhp_aclp foreign key( permission_id) references  acl_permissions(id); 
   alter table acl_rol_has_permissions add constraint fk_arhp_aclr foreign key( role_id ) references  acl_roles(id); 
   
+  -- khoa ngoai cho bang acl_user_has_permissions
+  alter table acl_user_has_permissions add constraint fk_auhp_aclu foreign key( user_id) references  acl_users(id); 
+  alter table acl_user_has_permissions add constraint fk_auhp_aclp foreign key( permission_id ) references acl_permissions(id); 
+  
+  
   -- khoa ngoai cua bang shop_orders
   alter table shop_orders add constraint fk_shopOders_aclUser foreign key(employee_id) references acl_users(id);
   alter table shop_orders add constraint fk_shopOders_shopCustomers foreign key(customer_id) references shop_customers(id);
@@ -269,6 +280,14 @@ select * from acl_roles;
 select * from shop_products;
 select * from shop_categories;
 select * from shop_suppliers;
+
+select * from acl_users;
+select * from acl_permissions;
+select * from acl_roles;
+select * from acl_user_has_roles;
+select * from acl_rol_has_permissions;
+
+select * from acl_rol_has_permissions where role_id =1;
 
 -- xóa value trong table
 delete from shop_products where id in (22, 23);

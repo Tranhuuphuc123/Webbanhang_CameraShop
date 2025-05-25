@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce Shopping Website</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- ƠWM CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_child.css">
+    <link rel="stylesheet" href="./assets/css/responsive-style.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Swiper's CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- menu lenh -->
+    <nav class="pv-menu navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pvNavbar" aria-controls="pvNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pvNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-boxes-stacked"></i> Sản phẩm</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-regular fa-circle-question"></i> Hỗ trợ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Header -->
+    <div class="pv-header-main py-2 bg-white border-bottom">
+      <div class="container-fluid">
+        
+        <div class="row align-items-center p-2">
+          <div class="col-6 col-md-2 text-center text-md-start mb-2 mb-md-0">
+            <img src="./assets/images/logo.png" alt="Logo" style="height:40px;">
+          </div>
+
+          <!-- Danh mục sản phẩm button -->
+          <div class="col-6 col-md-3 mb-2 mb-md-0 d-flex align-items-center">
+            <button class="btn btn-outline-secondary d-flex align-items-center" 
+            style="border-radius:8px; color:#7b8190; border-color:#e3e6ed; background:#fff; font-weight:500;">
+              <i class="fa-solid fa-bars me-2"></i> Danh mục
+            </button>
+          </div>
+          
+          <!-- Tìm kiếm sản phẩm -->
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Nhập từ khoá cần tìm" aria-label="Search">
+              <button class="btn btn-light border" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <!-- <div class="pv-keyword mt-1" style="font-size:0.95rem; color:#888;">
+              RTX 5070 Ti &nbsp; Mac Mini M4 &nbsp; iPhone 16e &nbsp; Thinkpad &nbsp; Màn Hình &nbsp; Build PC
+            </div> -->
+          </div>
+          <div class="col-6 col-md-4 text-end">
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-user fa-lg"></i><span class="d-none d-md-inline ms-1">Đăng nhập<br><span style="font-size:0.9em;">Đăng ký</span></span></a>
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-bell fa-lg"></i></a>
+            <a href="#" class="text-secondary d-inline-block"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="d-none d-md-inline ms-1">Giỏ hàng của bạn<br><span style="font-size:0.9em;">(0) sản phẩm</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ******************************************************************************************** -->
+
+<!--session1: nav logo-->
+<div class="d-flex flex-column section1-hero-flex mb-3">
+  <div class="d-flex align-items-center justify-content-between w-100 mb-1">
+    <nav class="breadcrumb mb-0 bg-transparent p-0 small">
+      <a class="text-primary" href="#">Trang chủ&nbsp;</a>
+      <span class="breadcrumb-item active text-secondary">/ Laptop</span>
+      <span class="breadcrumb-item active"> Thanh toán</span>
+    </nav>
+  </div>
+</div>
+
+
+
+<!-- ******************************************************************************************** -->
+<!-- SECTION 2 thanh toán  -->
+<section class="checkout-section py-4">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <!-- LEFT: Thông tin đơn hàng -->
+      <div class="col-lg-7 col-12">
+        <div class="checkout-box bg-white rounded shadow-sm p-4 mb-4">
+          <!-- Sản phẩm trong đơn -->
+          <div class="checkout-product-box mb-3">
+            <div class="d-flex align-items-center mb-2">
+              <a href="#" class="text-primary small"><i class="fa fa-arrow-left me-1"></i> Quay lại giỏ hàng</a>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <img src="assets/images/product-img/e-2.jpg" alt="Laptop" class="rounded me-3" style="width:56px;height:56px;object-fit:cover;">
+              <div class="flex-grow-1">
+                <div class="fw-bold">Laptop Dell Inspiron N3530 i5 1334U/16GB/512GB/15.6\"FHD/Win11/Office HS21</div>
+                <div class="small text-muted">Màu: Bạc</div>
+              </div>
+              <div class="text-end ms-2">
+                <div class="text-danger fw-bold">17.990.000 đ</div>
+                <div class="text-muted small"><del>19.990.000 đ</del></div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <button class="btn btn-outline-secondary btn-sm"><i class="fa fa-gift me-1"></i> 4 Quà tặng đơn hàng</button>
+              <span class="badge bg-warning text-dark small">Vui lòng đăng nhập để đổi điểm</span>
+            </div>
+          </div>
+          <!-- Nhập thông tin người đặt hàng -->
+          <div class="checkout-user-box mb-3">
+            <div class="fw-bold mb-2">Người đặt hàng</div>
+            <input type="text" class="form-control mb-2" placeholder="Họ và tên">
+            <input type="text" class="form-control mb-2" placeholder="Số điện thoại">
+            <input type="email" class="form-control" placeholder="Email (không bắt buộc)">
+          </div>
+          <!-- Hình thức nhận hàng -->
+          <div class="checkout-delivery-box mb-3">
+            <div class="fw-bold mb-2">Hình thức nhận hàng</div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="deliveryType" id="deliveryHome" checked>
+              <label class="form-check-label" for="deliveryHome">Giao hàng tận nơi</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="deliveryType" id="deliveryStore">
+              <label class="form-check-label" for="deliveryStore">Nhận tại cửa hàng</label>
+            </div>
+            <input type="text" class="form-control mt-2" placeholder="Tỉnh/Thành Phố, Quận/Huyện, Phường/Xã">
+            <textarea class="form-control mt-2" rows="2" maxlength="128" placeholder="Ghi chú (Ví dụ: Hãy gọi tôi khi chuẩn bị hàng xong)"></textarea>
+            <div class="form-check mt-2">
+              <input class="form-check-input" type="checkbox" id="otherReceiver">
+              <label class="form-check-label" for="otherReceiver">Nhờ người khác nhận hàng</label>
+            </div>
+            <div class="form-check mt-1">
+              <input class="form-check-input" type="checkbox" id="needSupport">
+              <label class="form-check-label" for="needSupport">Yêu cầu hỗ trợ kỹ thuật</label>
+            </div>
+          </div>
+          <!-- Xuất hóa đơn điện tử -->
+          <div class="checkout-invoice-box mb-3 d-flex align-items-center justify-content-between">
+            <span class="fw-bold">Xuất hóa đơn điện tử</span>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input" type="checkbox" id="invoiceSwitch">
+            </div>
+          </div>
+          <!-- Phương thức thanh toán -->
+          <div class="checkout-payment-box mb-2">
+            <div class="fw-bold mb-2">Phương thức thanh toán</div>
+            <div class="payment-method-list">
+              <!-- Demo: chỉ liệt kê, bạn sẽ code logic sau -->
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="payCash" checked>
+                <label class="form-check-label d-flex align-items-center" for="payCash">
+                  <img src="assets/images/payment/cash.svg" alt="cash" class="me-2" style="width:24px;"> Thanh toán khi nhận hàng
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="payQR">
+                <label class="form-check-label d-flex align-items-center" for="payQR">
+                  <img src="assets/images/payment/qr.svg" alt="qr" class="me-2" style="width:24px;"> Thanh toán bằng QR Code, thẻ ATM nội địa
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="payVisa">
+                <label class="form-check-label d-flex align-items-center" for="payVisa">
+                  <img src="assets/images/payment/visa.svg" alt="visa" class="me-2" style="width:24px;"> Thanh toán quốc tế Visa, Master, JCB, AMEX, Apple Pay, Google Pay
+                </label>
+              </div>
+              <!-- ... Thêm các phương thức khác tương tự ... -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Để bạn tự code -->
+      <div class="col-lg-5 col-12">
+        <div class="checkout-right-box bg-white rounded shadow-sm p-4 h-100">
+          <div class="order-summary-box">
+            <div class="fw-bold mb-3 fs-5">Thông tin đơn hàng</div>
+            <div class="order-summary-list">
+              <div class="d-flex justify-content-between align-items-center py-1">
+                <span>Tổng tiền</span>
+                <span class="fw-bold">19.990.000 đ</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1">
+                <span>Tổng khuyến mãi</span>
+                <span class="fw-bold text-success">2.000.000 đ</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1">
+                <span>Phí vận chuyển</span>
+                <span class="text-primary">Miễn phí</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1">
+                <span>Cần thanh toán</span>
+                <span class="fw-bold text-danger fs-5">17.990.000 đ</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1">
+                <span>Điểm thưởng</span>
+                <span class="text-warning fw-bold"><i class="fa fa-coins me-1"></i>+4,497</span>
+              </div>
+            </div>
+            <div class="order-summary-detail mb-2 mt-2">
+              <a href="#" class="text-primary small">Xem chi tiết <i class="fa fa-chevron-down ms-1"></i></a>
+            </div>
+            <button class="btn btn-danger btn-lg w-100 mb-3 order-btn">Đặt hàng</button>
+            <div class="order-summary-note text-center small text-muted">
+              Bằng việc tiến hành đặt mua hàng, bạn đồng ý với<br>
+              <a href="#" class="fw-bold text-decoration-underline">Điều khoản dịch vụ</a> và <a href="#" class="fw-bold text-decoration-underline">Chính sách xử lý dữ liệu cá nhân</a><br>của FPT Shop
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ******************************************************************************************** -->
+<!-- SECTION 3 footer -->
+<footer>
+  <div class="footer-main pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">KẾT NỐI VỚI FPT SHOP</h6>
+          <div class="footer-social mb-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><img src="https://static.zalo.me/logo/zalo-logo.png" alt="Zalo" style="width: 24px; height: 24px; background: #fff; border-radius: 50%; padding: 2px;"></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+          <div class="small mb-1">TỔNG ĐÀI MIỄN PHÍ</div>
+          <div class="small">Tư vấn mua hàng: <b>1800.6601</b> (Nhánh 1)</div>
+          <div class="small">Hỗ trợ kỹ thuật: <b>1800.6601</b> (Nhánh 2)</div>
+          <div class="small">Góp ý, khiếu nại: <b>1800.6616</b> (8h00 - 22h00)</div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">VỀ CHÚNG TÔI</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Giới thiệu về công ty</a></li>
+            <li><a href="#">Quy chế hoạt động</a></li>
+            <li><a href="#">Dự án Doanh nghiệp</a></li>
+            <li><a href="#">Tin tức khuyến mại</a></li>
+            <li><a href="#">Giới thiệu máy đổi trả</a></li>
+            <li><a href="#">Hướng dẫn mua hàng & thanh toán online</a></li>
+            <li><a href="#">Đại lý uỷ quyền & TTBH uỷ quyền của Apple</a></li>
+            <li><a href="#">Tra cứu hoá đơn điện tử</a></li>
+            <li><a href="#">Tra cứu bảo hành</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">CHÍNH SÁCH</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Chính sách bảo hành</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Chính sách trả góp</a></li>
+            <li><a href="#">Chính sách khui hộp sản phẩm</a></li>
+            <li><a href="#">Chính sách giao hàng & lắp đặt</a></li>
+            <li><a href="#">Chính sách mang đi động FPT</a></li>
+            <li><a href="#">Chính sách thu thập & xử lý dữ liệu cá nhân</a></li>
+            <li><a href="#">Quy định về hỗ trợ kỹ thuật & sao lưu dữ liệu</a></li>
+            <li><a href="#">Chính sách giao hàng & lắp đặt Điện máy, Gia dụng</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">HỖ TRỢ THANH TOÁN</h6>
+          <div class="mb-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" class="img-fluid mb-2" style="max-width:40px;">
+          </div>
+          <h6 class="mb-2">CHỨNG NHẬN</h6>
+          <img src="https://www.dmca.com/img/dmca-badge-w200-5x1-01.png" alt="DMCA" class="img-fluid me-2" style="max-width: 60px;">
+          <img src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/logo-bo-cong-thuong-mau-xanh-inkythuatso-01-13-15-31-05.jpg" alt="Bộ Công Thương" class="img-fluid" style="max-width: 60px;">
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-12 text-center small">
+          © 2025 FPT Shop. All Rights Reserved. Địa chỉ: 261 - 263 Khánh Hội, P2, Q4, TP. HCM. GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012.<br>
+          GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018 - Điện thoại: (028) 7302 3456 - Email: fptshop@fpt.com.vn
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
+    <!-- OWN JS -->
+    <script src="./assets/js/main.js"></script>
+
+    
+</body>
+</html>

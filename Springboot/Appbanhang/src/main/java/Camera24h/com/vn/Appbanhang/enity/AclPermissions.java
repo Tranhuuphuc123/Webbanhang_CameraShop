@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -33,4 +34,15 @@ public class AclPermissions {
 
     @Column(name = "updated_at")
     private LocalDateTime updateAt;
+
+
+//    //tao lien ket khao ngoai quan he 1 -N vơi table alc_role_has_permission
+//    @OneToMany(mappedBy = "permissions")
+//    private List<AclRolehasPermisions> roles;
+//
+//    //tao lien ket khoa ngoai quan he 1 - N vơi table acl_user_has_permissions
+//    @OneToMany(mappedBy = "permissions")
+//    private List<AclUserhasPermisions> users;
+
+
 }

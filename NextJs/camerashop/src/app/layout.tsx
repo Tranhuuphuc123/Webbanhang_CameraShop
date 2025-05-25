@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-
-//import lib bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
+//import lib bootstrap cho toàn dự án
+import "bootstrap/dist/css/bootstrap.min.css"; //2mb
 import "./globals.css";
 
-//import fontAwesome NextJs toàn cục cho dự án 
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+//import fontAwesome NextJs toàn cục cho dự án
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 // import lib ToastContext vao su dung chung cho toàn dự án luôn
-import ToastProvider from '@/context/ToastContext';
+import ToastProvider from "@/context/ToastContext";
 
 //import lib ModalContext vao su dung chung cho toàn dự án luôn
-import ModalProvider from '@/context/ModalContext';
+import ModalProvider from "@/context/ModalContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,9 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ToastProvider>
-            <ModalProvider>
-                {children}
-            </ModalProvider>
+          <ModalProvider>{children}</ModalProvider>
         </ToastProvider>
       </body>
     </html>

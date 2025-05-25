@@ -64,8 +64,8 @@ public class AclRolehasPermissionService {
         try{
             for(Integer permissionID : objCreate.getListPermission()){
                 AclRolehasPermisions aclRolehasPerEntity = new AclRolehasPermisions();
-                aclRolehasPerEntity.setPermissionId(permissionID);
-                aclRolehasPerEntity.setRoleId(objCreate.getRoleId());
+//                aclRolehasPerEntity.setPermissionId(permissionID);
+//                aclRolehasPerEntity.setRoleId(objCreate.getRoleId());
 
                 aclRolehasPermissionRepo.save(aclRolehasPerEntity);
                 listCreateEnity.add(aclRolehasPerEntity);
@@ -130,8 +130,8 @@ public ResponseEntity<Map<String, Object>> updateRolehasPermission(Integer id, A
         //nhan value id vua tim thay
         AclRolehasPermisions enityEdit = optFound.get();
         //dung repository update - 2 th value nay bat buoc phai nhap do co kho ngoai lien ket
-        enityEdit.setPermissionId(objUpdate.getPermissionId());
-        enityEdit.setRoleId(objUpdate.getRoleId());
+//        enityEdit.setPermissionId(objUpdate.getPermissionId());
+//        enityEdit.setRoleId(objUpdate.getRoleId());
 
         try{
             aclRolehasPermissionRepo.save(enityEdit);

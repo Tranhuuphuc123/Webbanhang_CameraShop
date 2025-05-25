@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.LifecycleState;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -36,5 +38,9 @@ public class AclRole {
     private LocalDateTime updatedAt;
 
     //get/set dung loombook lib
+
+    //tạo khóa ngoai lien ket vơi table con quan hệ 1- N vs table acl_role_has_permissions
+    @OneToMany(mappedBy = "role")
+    private List<AclRolehasPermisions> permisions;
 
 }

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Shopping Website</title>
+    <!-- Link Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- ƠWM CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style_child.css" />
+    <link rel="stylesheet" href="./assets/css/responsive-style.css" />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- menu lenh -->
+    <nav class="pv-menu navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#pvNavbar"
+          aria-controls="pvNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pvNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"
+                ><i class="fa-solid fa-house"></i> Trang chủ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fa-solid fa-boxes-stacked"></i> Sản phẩm</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fa-solid fa-tags"></i> Khuyến mãi</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fa-solid fa-newspaper"></i> Tin tức</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fa-regular fa-circle-question"></i> Hỗ trợ</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Header -->
+    <div class="pv-header-main py-2 bg-white border-bottom">
+      <div class="container-fluid">
+        <div class="row align-items-center p-2">
+          <div class="col-6 col-md-2 text-center text-md-start mb-2 mb-md-0">
+            <img
+              src="./assets/images/logo.png"
+              alt="Logo"
+              style="height: 40px"
+            />
+          </div>
+
+          <!-- Danh mục sản phẩm button -->
+          <div class="col-6 col-md-3 mb-2 mb-md-0 d-flex align-items-center">
+            <button
+              class="btn btn-outline-secondary d-flex align-items-center"
+              style="
+                border-radius: 8px;
+                color: #7b8190;
+                border-color: #e3e6ed;
+                background: #fff;
+                font-weight: 500;
+              "
+            >
+              <i class="fa-solid fa-bars me-2"></i> Danh mục
+            </button>
+          </div>
+
+          <!-- Tìm kiếm sản phẩm -->
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Nhập từ khoá cần tìm"
+                aria-label="Search"
+              />
+              <button class="btn btn-light border" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+            <!-- <div class="pv-keyword mt-1" style="font-size:0.95rem; color:#888;">
+              RTX 5070 Ti &nbsp; Mac Mini M4 &nbsp; iPhone 16e &nbsp; Thinkpad &nbsp; Màn Hình &nbsp; Build PC
+            </div> -->
+          </div>
+          <div class="col-6 col-md-4 text-end">
+            <a href="#" class="text-secondary me-3 d-inline-block"
+              ><i class="fa-regular fa-user fa-lg"></i
+              ><span class="d-none d-md-inline ms-1"
+                >Đăng nhập<br /><span style="font-size: 0.9em"
+                  >Đăng ký</span
+                ></span
+              ></a
+            >
+            <a href="#" class="text-secondary me-3 d-inline-block"
+              ><i class="fa-regular fa-bell fa-lg"></i
+            ></a>
+            <a href="#" class="text-secondary d-inline-block"
+              ><i class="fa-solid fa-cart-shopping fa-lg"></i
+              ><span class="d-none d-md-inline ms-1"
+                >Giỏ hàng của bạn<br /><span style="font-size: 0.9em"
+                  >(0) sản phẩm</span
+                ></span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ******************************************************************************************** -->
+
+    <!--session1: nav logo-->
+    <div class="d-flex flex-column section1-hero-flex mb-3">
+      <div class="d-flex align-items-center justify-content-between w-100 mb-1">
+        <nav class="breadcrumb mb-0 bg-transparent p-0 small">
+          <a class="text-primary" href="#">Trang chủ&nbsp;</a>
+          <span class="breadcrumb-item active text-secondary">/ Laptop</span>
+          <span class="breadcrumb-item active"> cart</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ******************************************************************************************** -->
+    <!-- SECTION 2 giỏ hàng  -->
+
+    <!-- ******************************************************************************************** -->
+    <section class="cart-section py-4">
+      <div class="container">
+        <div class="cart-box bg-white rounded shadow-sm p-4">
+          <div class="d-flex align-items-center mb-3">
+            <input
+              type="checkbox"
+              class="form-check-input me-2"
+              id="cartSelectAll"
+              checked
+            />
+            <label for="cartSelectAll" class="fw-bold">Chọn tất cả (1)</label>
+          </div>
+
+          <div
+            class="cart-item-box mb-3 p-3 rounded-3 bg-light position-relative"
+          >
+            <div class="d-flex align-items-center mb-2">
+              <input
+                type="checkbox"
+                class="form-check-input me-2 cart-item-check"
+                checked
+              />
+              <img
+                src="assets/images/product-img/e-2.jpg"
+                alt="Laptop"
+                class="cart-item-img rounded me-3"
+                style="width: 60px; height: 60px; object-fit: cover"
+              />
+              <div class="flex-grow-1">
+                <div class="fw-bold cart-item-title">
+                  Laptop Dell Inspiron N3530 i5
+                  1334U/16GB/512GB/15.6"FHD/Win11/Office HS21
+                </div>
+                <div class="small text-muted">Màu: Bạc</div>
+              </div>
+              <div class="text-end ms-2">
+                <div class="cart-item-price text-danger fw-bold">
+                  17.990.000 đ
+                </div>
+                <div class="cart-item-oldprice text-muted small">
+                  <del>19.990.000 đ</del>
+                </div>
+              </div>
+              <button class="btn btn-link text-danger ms-2 cart-item-remove">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="fw-bold">Số lượng:</span>
+              <div
+                class="input-group input-group-sm cart-qty-group"
+                style="width: 110px"
+              >
+                <button
+                  class="btn btn-outline-secondary cart-qty-minus"
+                  type="button"
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  class="form-control text-center cart-qty-input"
+                  value="1"
+                  style="max-width: 40px"
+                />
+                <button
+                  class="btn btn-outline-secondary cart-qty-plus"
+                  type="button"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="cart-warranty-box bg-white rounded-3 p-3 mt-2">
+              <div class="fw-bold mb-2">
+                <i class="fa fa-shield-alt text-danger me-2"></i>Chọn gói bảo
+                hành
+              </div>
+              <div class="form-check mb-1">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="warranty1"
+                />
+                <label class="form-check-label" for="warranty1"
+                  >Đặc quyền Bảo hành thêm 1 năm MTXT (BT)
+                  <span class="text-danger fw-bold">+600.000 đ</span>
+                  <span class="text-muted small"
+                    ><del>1.000.000 đ</del></span
+                  ></label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="warranty2"
+                />
+                <label class="form-check-label" for="warranty2"
+                  >Đặc quyền Bảo hành trọn đời
+                  <span class="text-danger fw-bold">+1.500.000 đ</span>
+                  <span class="text-muted small"
+                    ><del>2.400.000 đ</del></span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-summary-box bg-light rounded-3 p-3 mb-2">
+            <div class="mb-2">
+              <span class="fw-bold">Chọn hoặc nhập ưu đãi</span>
+              <input
+                type="text"
+                class="form-control form-control-sm mt-1"
+                placeholder="Nhập mã ưu đãi hoặc chọn..."
+              />
+            </div>
+            <div class="mb-2">
+              <span class="fw-bold">Đổi 0 điểm (~0đ)</span>
+            </div>
+            <div class="mb-2">
+              <span class="fw-bold">Thông tin đơn hàng</span>
+              <div class="d-flex justify-content-between mt-1">
+                <span>Tổng tiền</span>
+                <span class="fw-bold">19.990.000 đ</span>
+              </div>
+              <hr class="my-2" />
+              <div class="d-flex justify-content-between mt-1">
+                <span>Tổng khuyến mãi</span>
+                <span class="text-success">2.000.000 đ</span>
+              </div>
+              <hr class="my-2" />
+              <div class="d-flex justify-content-between mt-1">
+                <span>Cần thanh toán</span>
+                <span class="text-danger fw-bold">17.990.000 đ</span>
+              </div>
+              <hr class="my-2" />
+              <div class="d-flex justify-content-between mt-1">
+                <span>Điểm thưởng</span>
+                <span>0</span>
+              </div>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-danger btn-lg px-5 cart-confirm-btn">
+                Xác nhận đơn
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ******************************************************************************************** -->
+    <!-- SECTION 3 footer -->
+    <footer>
+      <div class="footer-main pt-5 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">KẾT NỐI VỚI FPT SHOP</h6>
+              <div class="footer-social mb-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"
+                  ><img
+                    src="https://static.zalo.me/logo/zalo-logo.png"
+                    alt="Zalo"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      background: #fff;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                /></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+              </div>
+              <div class="small mb-1">TỔNG ĐÀI MIỄN PHÍ</div>
+              <div class="small">
+                Tư vấn mua hàng: <b>1800.6601</b> (Nhánh 1)
+              </div>
+              <div class="small">
+                Hỗ trợ kỹ thuật: <b>1800.6601</b> (Nhánh 2)
+              </div>
+              <div class="small">
+                Góp ý, khiếu nại: <b>1800.6616</b> (8h00 - 22h00)
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">VỀ CHÚNG TÔI</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Giới thiệu về công ty</a></li>
+                <li><a href="#">Quy chế hoạt động</a></li>
+                <li><a href="#">Dự án Doanh nghiệp</a></li>
+                <li><a href="#">Tin tức khuyến mại</a></li>
+                <li><a href="#">Giới thiệu máy đổi trả</a></li>
+                <li><a href="#">Hướng dẫn mua hàng & thanh toán online</a></li>
+                <li>
+                  <a href="#">Đại lý uỷ quyền & TTBH uỷ quyền của Apple</a>
+                </li>
+                <li><a href="#">Tra cứu hoá đơn điện tử</a></li>
+                <li><a href="#">Tra cứu bảo hành</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">CHÍNH SÁCH</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Chính sách bảo hành</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Chính sách trả góp</a></li>
+                <li><a href="#">Chính sách khui hộp sản phẩm</a></li>
+                <li><a href="#">Chính sách giao hàng & lắp đặt</a></li>
+                <li><a href="#">Chính sách mang đi động FPT</a></li>
+                <li>
+                  <a href="#">Chính sách thu thập & xử lý dữ liệu cá nhân</a>
+                </li>
+                <li>
+                  <a href="#">Quy định về hỗ trợ kỹ thuật & sao lưu dữ liệu</a>
+                </li>
+                <li>
+                  <a href="#"
+                    >Chính sách giao hàng & lắp đặt Điện máy, Gia dụng</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h6 class="mb-3">HỖ TRỢ THANH TOÁN</h6>
+              <div class="mb-3">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+                  alt="Visa"
+                  class="img-fluid mb-2"
+                  style="max-width: 40px"
+                />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+                  alt="MasterCard"
+                  class="img-fluid mb-2"
+                  style="max-width: 40px"
+                />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
+                  alt="Momo"
+                  class="img-fluid mb-2"
+                  style="max-width: 40px"
+                />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png"
+                  alt="VNPAY"
+                  class="img-fluid mb-2"
+                  style="max-width: 40px"
+                />
+              </div>
+              <h6 class="mb-2">CHỨNG NHẬN</h6>
+              <img
+                src="https://www.dmca.com/img/dmca-badge-w200-5x1-01.png"
+                alt="DMCA"
+                class="img-fluid me-2"
+                style="max-width: 60px"
+              />
+              <img
+                src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/logo-bo-cong-thuong-mau-xanh-inkythuatso-01-13-15-31-05.jpg"
+                alt="Bộ Công Thương"
+                class="img-fluid"
+                style="max-width: 60px"
+              />
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="row">
+            <div class="col-12 text-center small">
+              © 2025 FPT Shop. All Rights Reserved. Địa chỉ: 261 - 263 Khánh
+              Hội, P2, Q4, TP. HCM. GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp
+              ngày 08/03/2012.<br />
+              GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018 - Điện
+              thoại: (028) 7302 3456 - Email: fptshop@fpt.com.vn
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- OWN JS -->
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

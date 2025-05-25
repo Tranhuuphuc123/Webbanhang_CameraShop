@@ -30,6 +30,7 @@ public interface AclUserRepository extends CrudRepository<AclUser, Integer>,
         PagingAndSortingRepository<AclUser, Integer> {
 
     //viết function tiềm kiếm theo tên hàm bổ sung thêm mà bên spring hng có hổ trợ ta tự viết
-    List<AclUser> findByUsername(String userName);
+    //List<AclUser> findByUsername(String userName);
+    AclUser findByUsername(String userName);
 
 }

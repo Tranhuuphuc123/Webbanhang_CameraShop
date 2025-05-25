@@ -1,8 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { redirect } from "next/navigation";
 
+//dung redirect trong nextjs để chuyển hướng thẳng đến trang page.tsx của client
 export default function Home() {
-  return (
-   <h1>tran dashboard của camera shop</h1>
-  );
+  redirect("/client");
 }

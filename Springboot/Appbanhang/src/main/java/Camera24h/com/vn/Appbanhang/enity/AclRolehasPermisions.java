@@ -15,9 +15,19 @@ public class AclRolehasPermisions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "role_id")
-    private int roleId;
 
-    @Column(name = "permission_id")
-    private int permissionId;
+    /****NOTE: KHI SỬ DỤNG ANNOTATION THI ĐÃ CÓ LK CÁC CỘT HÀNG NEN KHÔNG CẦN KHAI BÁO RA*****/
+//    @Column(name = "role_id")
+//    private int roleId;
+//
+//    @Column(name = "permission_id")
+//    private int permissionId;
+
+    //lien ket khoa ngoai quan he N -1 vói table Acl_Role
+    @ManyToOne
+    private AclRole role;
+
+    //lien ket khoa ngoai quan he N-1 với table Acl_permissions
+    @ManyToOne
+    private AclPermissions permissions;
 }

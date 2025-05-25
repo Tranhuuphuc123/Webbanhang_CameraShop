@@ -3,8 +3,10 @@ package Camera24h.com.vn.Appbanhang.service;
 import Camera24h.com.vn.Appbanhang.DTO.AclUserHasRolesDTO.AclUserHasRolesBatchCreateRequestDTO;
 import Camera24h.com.vn.Appbanhang.DTO.AclUserHasRolesDTO.AclUserHasRolesCreateRequestDTO;
 import Camera24h.com.vn.Appbanhang.DTO.AclUserHasRolesDTO.AclUserHasRolesUpdateRequestDTO;
+import Camera24h.com.vn.Appbanhang.enity.AclUser;
 import Camera24h.com.vn.Appbanhang.enity.AclUserHasRoles;
 import Camera24h.com.vn.Appbanhang.repository.AclUserHasRolesRepository;
+import jakarta.persistence.ManyToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -83,8 +85,15 @@ public class AclUserHasRolesService {
 
         //goi repository
         AclUserHasRoles aclUserRoleEnity = new AclUserHasRoles();
-        aclUserRoleEnity.setUserId(objCreate.getUserId());
-        aclUserRoleEnity.setRoleId(objCreate.getRoleId());
+//        aclUserRoleEnity.setUserId(objCreate.getUserId());
+//        aclUserRoleEnity.setRoleId(objCreate.getRoleId());
+
+        /*do dung annotation la cac '@ManyToOne' , '@OneToMany' khoa ngoai lien ket Entity
+         trong spring boot
+         ===> nen khong the get/set bien theo cach thong thuong ma phai viet nhu sau*/
+//        AclUser getUserId = aclUserRoleEnity.getId(objCreate.getUserId());
+        aclUserRoleEnity.setUser(null);
+        aclUserRoleEnity.setRole(null);
 
         //luu lai cac khoi tao
         try{
@@ -115,8 +124,8 @@ public class AclUserHasRolesService {
         try{
             for(Integer roledId : objCreate.getListRoleId()){
                 AclUserHasRoles aclUserRoleEnity = new AclUserHasRoles();
-                aclUserRoleEnity.setUserId(objCreate.getUserId());
-                aclUserRoleEnity.setRoleId(roledId);
+//                aclUserRoleEnity.setUserId(objCreate.getUserId());
+//                aclUserRoleEnity.setRoleId(roledId);
 
                 aclUserHasRoleRepo.save(aclUserRoleEnity);
                 listCreateEntity.add(aclUserRoleEnity);
@@ -182,8 +191,8 @@ public class AclUserHasRolesService {
             AclUserHasRoles enityEdit = optFound.get();
 
             //do co hai thuoc tinh gan nhu bat buoc phai co nen no khoi kiem tra cos null hay khong
-            enityEdit.setUserId(objCreate.getUserId());
-            enityEdit.setRoleId(objCreate.getRoleId());
+//            enityEdit.setUserId(objCreate.getUserId());
+//            enityEdit.setRoleId(objCreate.getRoleId());
 
             try{
                 //tien hanh luu ket qua vua update

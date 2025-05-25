@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce Shopping Website</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- ƠWM CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_child.css">
+    <link rel="stylesheet" href="./assets/css/responsive-style.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Swiper's CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- menu lenh -->
+    <nav class="pv-menu navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pvNavbar" aria-controls="pvNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pvNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-boxes-stacked"></i> Sản phẩm</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-regular fa-circle-question"></i> Hỗ trợ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Header -->
+    <div class="pv-header-main py-2 bg-white border-bottom">
+      <div class="container-fluid">
+        
+        <div class="row align-items-center p-2">
+          <div class="col-6 col-md-2 text-center text-md-start mb-2 mb-md-0">
+            <img src="./assets/images/logo.png" alt="Logo" style="height:40px;">
+          </div>
+
+          <!-- Danh mục sản phẩm button -->
+          <div class="col-6 col-md-3 mb-2 mb-md-0 d-flex align-items-center">
+            <button class="btn btn-outline-secondary d-flex align-items-center" 
+            style="border-radius:8px; color:#7b8190; border-color:#e3e6ed; background:#fff; font-weight:500;">
+              <i class="fa-solid fa-bars me-2"></i> Danh mục
+            </button>
+          </div>
+          
+          <!-- Tìm kiếm sản phẩm -->
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Nhập từ khoá cần tìm" aria-label="Search">
+              <button class="btn btn-light border" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <!-- <div class="pv-keyword mt-1" style="font-size:0.95rem; color:#888;">
+              RTX 5070 Ti &nbsp; Mac Mini M4 &nbsp; iPhone 16e &nbsp; Thinkpad &nbsp; Màn Hình &nbsp; Build PC
+            </div> -->
+          </div>
+          <div class="col-6 col-md-4 text-end">
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-user fa-lg"></i><span class="d-none d-md-inline ms-1">Đăng nhập<br><span style="font-size:0.9em;">Đăng ký</span></span></a>
+            <a href="#" class="text-secondary me-3 d-inline-block"><i class="fa-regular fa-bell fa-lg"></i></a>
+            <a href="#" class="text-secondary d-inline-block"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="d-none d-md-inline ms-1">Giỏ hàng của bạn<br><span style="font-size:0.9em;">(0) sản phẩm</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ******************************************************************************************** -->
+
+<!--session1: nav logo-->
+<div class="d-flex flex-column section1-hero-flex mb-3">
+  <div class="d-flex align-items-center justify-content-between w-100 mb-1">
+    <nav class="breadcrumb mb-0 bg-transparent p-0 small">
+      <a class="text-primary" href="#">Trang chủ&nbsp;</a>
+      <span class="breadcrumb-item active text-secondary">/ Laptop</span>
+      <span class="breadcrumb-item active">Tên sản phẩm</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ******************************************************************************************** -->
+<!--session2: sản phẩm chi tiết-->
+<section class="product-detail-section py-4">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <!-- Gallery bên trái -->
+      <div class="col-lg-8 mb-3 mb-lg-0">
+        <div class="product-gallery">
+          <div class="product-gallery-main mb-3 position-relative">
+            <button class="btn btn-light gallery-nav gallery-prev position-absolute top-50 start-0 translate-middle-y" type="button"><i class="fa fa-chevron-left"></i></button>
+            <img id="mainProductImg" src="assets/images/product-img/e-1.jpg" alt="Ảnh sản phẩm lớn" class="img-fluid rounded shadow-sm gallery-main-img">
+            <button class="btn btn-light gallery-nav gallery-next position-absolute top-50 end-0 translate-middle-y" type="button"><i class="fa fa-chevron-right"></i></button>
+          </div>
+          <div class="d-flex justify-content-center gap-2 product-gallery-thumbs mb-3">
+            <img src="assets/images/product-img/e-1.jpg" class="img-thumbnail gallery-thumb active" data-img="assets/images/product-img/e-1.jpg" alt="Thumb 1">
+            <img src="assets/images/product-img/e-2.jpg" class="img-thumbnail gallery-thumb" data-img="assets/images/product-img/e-2.jpg" alt="Thumb 2">
+            <img src="assets/images/product-img/e-3.jpg" class="img-thumbnail gallery-thumb" data-img="assets/images/product-img/e-3.jpg" alt="Thumb 3">
+            <img src="assets/images/product-img/e-4.jpg" class="img-thumbnail gallery-thumb" data-img="assets/images/product-img/e-4.jpg" alt="Thumb 4">
+          </div>
+          <!-- Thông số nổi bật & Chính sách sản phẩm -->
+          <div class="product-feature-box p-3 mb-2 bg-white rounded shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+              <div class="fw-bold fs-6 mb-0">Thông số nổi bật</div>
+              <a href="#" class="btn btn-outline-danger btn-sm px-3">Xem tất cả thông số</a>
+            </div>
+            <div class="row g-2 mb-2">
+              <div class="col-12 col-md-4">
+                <div class="d-flex align-items-center gap-2 p-2 border rounded bg-light h-100">
+                  <i class="fa-solid fa-microchip fa-lg text-secondary"></i>
+                  <div>
+                    <div class="small text-muted">CPU</div>
+                    <div class="fw-bold">Core i5</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-flex align-items-center gap-2 p-2 border rounded bg-light h-100">
+                  <i class="fa-brands fa-amazon fa-lg text-secondary"></i>
+                  <div>
+                    <div class="small text-muted">Card đồ hoạ</div>
+                    <div class="fw-bold">Intel Iris Xe Graphics</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-flex align-items-center gap-2 p-2 border rounded bg-light h-100">
+                  <i class="fa-solid fa-display fa-lg text-secondary"></i>
+                  <div>
+                    <div class="small text-muted">Kích thước màn hình</div>
+                    <div class="fw-bold">15.6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-2">
+            <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+              <div class="fw-bold fs-6 mb-0">Chính sách sản phẩm</div>
+              <a href="#" class="small text-primary">Tìm hiểu thêm</a>
+            </div>
+            <div class="row g-2">
+              <div class="col-6 col-md-3 d-flex align-items-center gap-2">
+                <i class="fa-solid fa-certificate text-danger"></i>
+                <span class="small">Hàng chính hãng - Bảo hành 12 tháng</span>
+              </div>
+              <div class="col-6 col-md-3 d-flex align-items-center gap-2">
+                <i class="fa-solid fa-truck-fast text-danger"></i>
+                <span class="small">Giao hàng miễn phí toàn quốc</span>
+              </div>
+              <div class="col-6 col-md-3 d-flex align-items-center gap-2">
+                <i class="fa-solid fa-screwdriver-wrench text-danger"></i>
+                <span class="small">Hỗ trợ cài đặt miễn phí</span>
+              </div>
+              <div class="col-6 col-md-3 d-flex align-items-center gap-2">
+                <i class="fa-solid fa-headset text-danger"></i>
+                <span class="small">Kỹ thuật viên hỗ trợ trực tuyến</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Thông tin & đặt hàng bên phải -->
+      <div class="col-lg-4">
+        <div class="product-info-box p-4 rounded shadow-sm bg-white">
+          <h2 class="product-title mb-2">Laptop Dell Inspiron 15 3520 i5 1235U/16GB/512GB/15.6"FHD</h2>
+          <div class="mb-2">
+            <span class="badge bg-success me-2">Còn hàng</span>
+            <span class="text-warning"><i class="fa fa-star"></i> 4.8</span>
+            <span class="text-muted ms-2 small">(120 đánh giá)</span>
+          </div>
+          <div class="product-price-box mb-3">
+            <span class="product-oldprice">17.290.000 đ</span>
+            <span class="product-price ms-2">16.490.000 đ</span>
+            <span class="product-discount ms-2">-5%</span>
+          </div>
+          <div class="mb-3">
+            <div class="text-success fw-bold mb-1">Ưu đãi & Quà tặng</div>
+            <ul class="list-unstyled mb-0">
+              <li><i class="fa fa-gift text-danger me-2"></i>Tặng Office Home 2024 bản quyền</li>
+              <li><i class="fa fa-gift text-danger me-2"></i>Độ bền chuẩn quân đội</li>
+              <li><i class="fa fa-gift text-danger me-2"></i>Giảm thêm 800.000đ khi thanh toán VNPAY</li>
+            </ul>
+          </div>
+          <div class="mb-3">
+            <div class="fw-bold mb-1">Chọn cấu hình:</div>
+            <select class="form-select w-auto d-inline-block mb-2">
+              <option>16GB/512GB</option>
+              <option>8GB/256GB</option>
+              <option>32GB/1TB</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-danger btn-lg px-2 me-2">Mua ngay</button>
+            <button class="btn btn-outline-danger btn-lg px-2">Thêm vào giỏ</button>
+          </div>
+          <div class="small text-muted">Giao hàng tận nơi toàn quốc. Đổi trả trong 7 ngày nếu lỗi nhà sản xuất.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+ <!--session3: mô tả sản phẩm-->
+<section class="product-desc-section py-3">
+  <div class="container">
+    <div class="product-desc-box bg-white rounded shadow-sm p-4">
+      <h3 class="desc-title mb-3">Mô tả sản phẩm</h3>
+      <div class="desc-content" id="descContent">
+        <p><a href="#" class="text-primary fw-bold">Dell Inspiron 15 3530</a> là một lựa chọn tốt trong phân khúc laptop tầm <b>20 triệu đồng</b>. Màn hình siêu ấn tượng với tần số quét 120Hz tái hiện chuyển động mượt mà. Cấu hình phần cứng với chip <b>Intel Core i5 1334U</b> cùng 16GB RAM và ổ cứng SSD 512GB đáp ứng tốt nhu cầu xử lý công việc.</p>
+        <p class="fw-bold mb-1">Hiệu suất ổn định cho công việc văn phòng</p>
+        <p>Laptop Dell Inspiron 3530 được trang bị bộ vi xử lý <b>Intel Core i5 1334U</b> xây dựng trên tiến trình 10nm, gồm 10 nhân 12 luồng. Trong đó có 2 P-Core và 8 E-Core, tốc độ xung nhịp tối đa của chipset này đạt tới 4.6GHz. Công nghệ Turbo Boost Max 3.0 và Intel Thread Director tối ưu hiệu suất lên mức tốt nhất để đáp ứng các tác vụ nặng như chỉnh sửa ảnh, biên tập video,... Các hoạt động thông thường như duyệt web, chạy ứng dụng văn phòng hay xem YouTube, lướt mạng xã hội sẽ diễn ra mượt mà, không xuất hiện giật lag.</p>
+        <div class="desc-img-wrap text-center my-3">
+          <img src="assets/images/product-img/e-2.jpg" alt="Mô tả sản phẩm" class="desc-img img-fluid rounded shadow">
+        </div>
+        <div class="desc-more collapse" id="descMore">
+          <p>Với thiết kế mỏng nhẹ, Dell Inspiron 15 3530 dễ dàng mang theo bên mình. Bàn phím fullsize, touchpad rộng rãi, pin dung lượng lớn giúp bạn làm việc cả ngày dài. Hệ điều hành Windows 11 bản quyền, bảo mật vân tay, webcam HD, loa stereo sống động,... tất cả đều góp phần tạo nên trải nghiệm tuyệt vời cho người dùng.</p>
+          <p>Máy còn hỗ trợ nhiều cổng kết nối hiện đại như USB-C, HDMI, khe thẻ nhớ SD, WiFi 6, Bluetooth 5.2,... giúp kết nối thiết bị ngoại vi dễ dàng. Sản phẩm phù hợp cho học sinh, sinh viên, nhân viên văn phòng, người làm việc di động.</p>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <button class="btn btn-outline-secondary btn-sm px-4" id="descToggleBtn" data-bs-toggle="collapse" data-bs-target="#descMore" aria-expanded="false" aria-controls="descMore">Đọc thêm</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+<!--session4: phần bình luận-->
+<section class="product-review-section py-3">
+  <div class="container">
+    <div class="product-review-box bg-white rounded shadow-sm p-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-3 text-center">
+          <div class="review-score display-4 fw-bold">4.2</div>
+          <div class="small text-muted">6 lượt đánh giá</div>
+          <div class="mb-2">
+            <span class="text-warning fs-4">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          </div>
+          <button class="btn btn-danger btn-sm px-4 mb-2">Đánh giá sản phẩm</button>
+        </div>
+        <div class="col-md-5">
+          <div class="review-bar-list">
+            <div class="d-flex align-items-center mb-1">
+              <span class="me-1 small">5</span>
+              <span class="text-warning me-1">&#9733;</span>
+              <div class="progress flex-grow-1 me-2" style="height:8px;">
+                <div class="progress-bar bg-danger" style="width:80%"></div>
+              </div>
+              <span class="small">4</span>
+            </div>
+            <div class="d-flex align-items-center mb-1">
+              <span class="me-1 small">4</span>
+              <span class="text-warning me-1">&#9733;</span>
+              <div class="progress flex-grow-1 me-2" style="height:8px;">
+                <div class="progress-bar bg-danger" style="width:30%"></div>
+              </div>
+              <span class="small">1</span>
+            </div>
+            <div class="d-flex align-items-center mb-1">
+              <span class="me-1 small">3</span>
+              <span class="text-warning me-1">&#9733;</span>
+              <div class="progress flex-grow-1 me-2" style="height:8px;">
+                <div class="progress-bar bg-danger" style="width:0%"></div>
+              </div>
+              <span class="small">0</span>
+            </div>
+            <div class="d-flex align-items-center mb-1">
+              <span class="me-1 small">2</span>
+              <span class="text-warning me-1">&#9733;</span>
+              <div class="progress flex-grow-1 me-2" style="height:8px;">
+                <div class="progress-bar bg-danger" style="width:0%"></div>
+              </div>
+              <span class="small">0</span>
+            </div>
+            <div class="d-flex align-items-center mb-1">
+              <span class="me-1 small">1</span>
+              <span class="text-warning me-1">&#9733;</span>
+              <div class="progress flex-grow-1 me-2" style="height:8px;">
+                <div class="progress-bar bg-danger" style="width:20%"></div>
+              </div>
+              <span class="small">1</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end text-center mt-3 mt-md-0">
+          <div class="review-filter-group d-inline-flex flex-wrap gap-2">
+            <button class="btn btn-outline-danger btn-sm active">Tất cả</button>
+            <button class="btn btn-outline-secondary btn-sm">5 <span class="text-warning">&#9733;</span></button>
+            <button class="btn btn-outline-secondary btn-sm">4 <span class="text-warning">&#9733;</span></button>
+            <button class="btn btn-outline-secondary btn-sm">3 <span class="text-warning">&#9733;</span></button>
+            <button class="btn btn-outline-secondary btn-sm">2 <span class="text-warning">&#9733;</span></button>
+            <button class="btn btn-outline-secondary btn-sm">1 <span class="text-warning">&#9733;</span></button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="mb-2 fw-bold">19 Bình luận</div>
+      <form class="review-form mb-3">
+        <div class="mb-2">
+          <input type="text" class="form-control" placeholder="Nhập nội dung bình luận..." maxlength="3000">
+        </div>
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="text-primary small"><i class="fa fa-image"></i> Thêm tối đa 5 ảnh và 1 video</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button type="submit" class="btn btn-dark btn-sm px-4">Gửi bình luận</button>
+        </div>
+      </form>
+      <div class="review-list">
+        <div class="review-item d-flex align-items-start mb-3">
+          <div class="review-avatar rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width:40px;height:40px;">M</div>
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="fw-bold">Mạnh</span>
+              <span class="text-muted small">• 5 tháng trước</span>
+            </div>
+            <div class="review-content mb-1">Máy đáp ứng được nhu cầu chơi game cơ bản không?</div>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-light btn-sm px-2 py-0"><i class="fa fa-thumbs-up"></i> 0</button>
+              <button class="btn btn-light btn-sm px-2 py-0">Trả lời</button>
+            </div>
+          </div>
+        </div>
+        <!-- Thêm các review-item khác nếu muốn -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+<!--session5: - câu hỏi thường gặp-->
+<section class="product-faq-section py-3">
+  <div class="container">
+    <div class="product-faq-box bg-white rounded shadow-sm p-4">
+      <h3 class="faq-title mb-3">Câu hỏi thường gặp</h3>
+      <div class="accordion product-faq-accordion" id="faqAccordion">
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="faqHeading1">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+              Laptop có cần card đồ họa rời không?
+              <span class="faq-toggle-icon ms-auto"></span>
+            </button>
+          </h2>
+          <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Nếu bạn chơi game, dựng video hoặc làm đồ họa 3D thì cần card rời. Nếu chỉ dùng văn phòng, học tập thì card tích hợp đã đủ dùng.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="faqHeading2">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+              Dùng laptop có cần cài phần mềm diệt virus không?
+              <span class="faq-toggle-icon ms-auto"></span>
+            </button>
+          </h2>
+          <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Nếu bạn thường xuyên tải file, truy cập web lạ thì nên cài phần mềm diệt virus để bảo vệ dữ liệu.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="faqHeading3">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+              Bảo quản laptop như thế nào cho đúng cách?
+              <span class="faq-toggle-icon ms-auto"></span>
+            </button>
+          </h2>
+          <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Để laptop nơi khô ráo, tránh nước, vệ sinh định kỳ, không để vật nặng lên máy, sử dụng túi chống sốc khi di chuyển.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="faqHeading4">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+              Laptop có dùng chung sạc được không?
+              <span class="faq-toggle-icon ms-auto"></span>
+            </button>
+          </h2>
+          <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Nên dùng đúng sạc theo máy, nếu dùng sạc khác phải đúng điện áp, dòng điện và chân cắm tương thích.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="faqHeading5">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+              Có thể nâng cấp RAM hoặc ổ cứng sau khi mua không?
+              <span class="faq-toggle-icon ms-auto"></span>
+            </button>
+          </h2>
+          <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Đa số laptop hiện nay đều có thể nâng cấp RAM hoặc ổ cứng, nhưng nên kiểm tra kỹ thông số trước khi mua.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ******************************************************************************************** -->
+<!-- SECTION 6:  logo quảng cáo chất lượng -->
+<section class="quality-ads-section py-3">
+  <div class="container-fluid bg-light rounded-4 py-3">
+    <div class="row justify-content-center text-center g-4 quality-ads-row">
+      <div class="col-6 col-md-3">
+        <div class="quality-ads-item">
+          <div class="quality-ads-icon mb-2 mx-auto">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <div class="fw-bold">Thương hiệu đảm bảo</div>
+          <div class="small">Nhập khẩu, bảo hành chính hãng</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="quality-ads-item">
+          <div class="quality-ads-icon mb-2 mx-auto">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+          <div class="fw-bold">Đổi trả dễ dàng</div>
+          <div class="small">Theo chính sách đổi trả tại FPT Shop</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="quality-ads-item">
+          <div class="quality-ads-icon mb-2 mx-auto">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+          <div class="fw-bold">Sản phẩm chất lượng</div>
+          <div class="small">Đảm bảo tương thích và độ bền cao</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="quality-ads-item">
+          <div class="quality-ads-icon mb-2 mx-auto">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="fw-bold">Giao hàng tận nơi</div>
+          <div class="small">Tại 63 tỉnh thành</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ******************************************************************************************** -->
+<!-- SECTION 7 footer -->
+<footer>
+  <div class="footer-main pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">KẾT NỐI VỚI FPT SHOP</h6>
+          <div class="footer-social mb-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><img src="https://static.zalo.me/logo/zalo-logo.png" alt="Zalo" style="width: 24px; height: 24px; background: #fff; border-radius: 50%; padding: 2px;"></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+          <div class="small mb-1">TỔNG ĐÀI MIỄN PHÍ</div>
+          <div class="small">Tư vấn mua hàng: <b>1800.6601</b> (Nhánh 1)</div>
+          <div class="small">Hỗ trợ kỹ thuật: <b>1800.6601</b> (Nhánh 2)</div>
+          <div class="small">Góp ý, khiếu nại: <b>1800.6616</b> (8h00 - 22h00)</div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">VỀ CHÚNG TÔI</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Giới thiệu về công ty</a></li>
+            <li><a href="#">Quy chế hoạt động</a></li>
+            <li><a href="#">Dự án Doanh nghiệp</a></li>
+            <li><a href="#">Tin tức khuyến mại</a></li>
+            <li><a href="#">Giới thiệu máy đổi trả</a></li>
+            <li><a href="#">Hướng dẫn mua hàng & thanh toán online</a></li>
+            <li><a href="#">Đại lý uỷ quyền & TTBH uỷ quyền của Apple</a></li>
+            <li><a href="#">Tra cứu hoá đơn điện tử</a></li>
+            <li><a href="#">Tra cứu bảo hành</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">CHÍNH SÁCH</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Chính sách bảo hành</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Chính sách trả góp</a></li>
+            <li><a href="#">Chính sách khui hộp sản phẩm</a></li>
+            <li><a href="#">Chính sách giao hàng & lắp đặt</a></li>
+            <li><a href="#">Chính sách mang đi động FPT</a></li>
+            <li><a href="#">Chính sách thu thập & xử lý dữ liệu cá nhân</a></li>
+            <li><a href="#">Quy định về hỗ trợ kỹ thuật & sao lưu dữ liệu</a></li>
+            <li><a href="#">Chính sách giao hàng & lắp đặt Điện máy, Gia dụng</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h6 class="mb-3">HỖ TRỢ THANH TOÁN</h6>
+          <div class="mb-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" class="img-fluid mb-2" style="max-width:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_VNPAY.png" alt="VNPAY" class="img-fluid mb-2" style="max-width:40px;">
+          </div>
+          <h6 class="mb-2">CHỨNG NHẬN</h6>
+          <img src="https://www.dmca.com/img/dmca-badge-w200-5x1-01.png" alt="DMCA" class="img-fluid me-2" style="max-width: 60px;">
+          <img src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/logo-bo-cong-thuong-mau-xanh-inkythuatso-01-13-15-31-05.jpg" alt="Bộ Công Thương" class="img-fluid" style="max-width: 60px;">
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-12 text-center small">
+          © 2025 FPT Shop. All Rights Reserved. Địa chỉ: 261 - 263 Khánh Hội, P2, Q4, TP. HCM. GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012.<br>
+          GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018 - Điện thoại: (028) 7302 3456 - Email: fptshop@fpt.com.vn
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
+    <!-- OWN JS -->
+    <script src="./assets/js/main.js"></script>
+
+    
+</body>
+</html>
